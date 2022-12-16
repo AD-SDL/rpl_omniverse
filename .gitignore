@@ -1,3 +1,6 @@
+# Omniverse (Added manually by Rory Butler)
+.thumbs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
