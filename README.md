@@ -2,7 +2,7 @@
 
 ## USD files
 
-Currently, **scenes/** contains the scene used for testing out RPL setups. It references parts from robots/ and components/ to build the scene. Some files are missing, (including the full RPL scene) due to exceptionally large file sizes. Workarounds are in progress.
+Currently, **scenes/** contains the scene used for testing out RPL setups. It references parts from **robots/** and **components/** to build the scene. Some files are missing, (including the full RPL scene) due to exceptionally large file sizes. Workarounds are in progress.
 
 ## Top level files
 
