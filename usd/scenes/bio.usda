@@ -1,0 +1,325 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (-2.8045769081758922, 0.8842713430644306, 2.6372275532221408)
+                double3 target = (-0.05094746858004262, 0.11465765916616333, 1.118271043099299)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 5)
+                double radius = 5
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./bio.usda"
+            dictionary locked = {
+                bool "file:/home/rmbutler/rpl_omniverse/usd/rooms/bio/2_export/bio.usdc" = 1
+            }
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 1
+    startTimeCode = 0
+    subLayers = [
+        @../rooms/bio/bio.usda@
+    ]
+    timeCodesPerSecond = 24
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def "hidex" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/robots/hidex/2_export/hidex.usdc@,
+            @../../hidex/2_export/hidex.usdc@,
+            @../../robots/hidex/2_export/hidex.usdc@,
+            @../../../cad/robots/hidex/2_export/hidex.usdc@,
+            @../../robots/hidex.usda@
+        ]
+        prepend payload = @../robots/hidex.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom quatd xformOp:orient = (0.9862856015372314, 0, 0, -0.16504760586067746)
+        float3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.21968324939425599, -0.4711317777764835, 1.0035)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "liconic" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/robots/liconic/2_export/liconic.usdc@,
+            @../../robots/liconic/2_export/liconic.usdc@,
+            @../../../robots/liconic/2_export/liconic.usdc@,
+            @../../../cad/robots/liconic/2_export/liconic.usdc@,
+            @../../robots/liconic.usda@
+        ]
+        prepend payload = @../robots/liconic.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom double3 xformOp:translate = (1.143, 0.33973, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def "peeler" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/robots/peeler/2_export/peeler.usdc@,
+            @../../robots/peeler/2_export/peeler.usdc@,
+            @../../../cad/robots/peeler/2_export/peeler.usdc@,
+            @../../robots/peeler.usda@
+        ]
+        prepend payload = @../robots/peeler.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom double3 xformOp:translate = (-0.50345, 0.071045, 0.92795)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def "platecrane_ex" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/robots/platecrane_ex/2_export/platecrane_ex.usdc@,
+            @../../robots/platecrane/2_export/platecrane_ex.usdc@,
+            @../../../cad/obots/platecrane/2_export/platecrane_ex.usdc@,
+            @../../../cad/robots/platecrane/2_export/platecrane_ex.usdc@,
+            @../../robots/platecrane_ex.usda@
+        ]
+        prepend payload = @../robots/platecrane_ex.usda@
+    )
+    {
+        token visibility = "inherited"
+        quatd xformOp:orient = (0.3255681544571568, 0, 0, -0.945518575599317)
+        custom double3 xformOp:translate = (0.01589, 0.18772, 0.9271)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+    }
+
+    def "platecrane_stacks" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/robots/platecrane_stacks/2_export/platecrane_stacks.usdc@,
+            @../../robots/platecrane_stacks/2_export/platecrane_stacks.usdc@,
+            @../../robots/platecrane/2_export/platecrane_stacks.usdc@,
+            @../../../cad/robots/platecrane/2_export/platecrane_stacks.usdc@,
+            @../../robots/platecrane_stacks.usda@
+        ]
+        prepend payload = @../robots/platecrane_stacks.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom quatd xformOp:orient = (0.9537169507482269, 0, 0, -0.3007057995042731)
+        custom double3 xformOp:translate = (0.01589, 0.18772, 0.9271)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+    }
+
+    def "sealer" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/robots/sealer/2_export/sealer.usdc@,
+            @../../robots/sealer/2_export/sealer.usdc@,
+            @../../../cad/robots/sealer/2_export/sealer.usdc@,
+            @../../robots/sealer.usda@
+        ]
+        prepend payload = @../robots/sealer.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom quatd xformOp:orient = (0.9862856015372314, 0, 0, -0.16504760586067746)
+        float3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.2567337797777952, -0.5958799195454892, 1.3335)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "solorail" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/objects/solorail/2_export/solorail.usdc@,
+            @../../objects/solorail/2_export/solorail.usdc@,
+            @../../../cad/objects/solorail/2_export/solorail.usdc@,
+            @../../robots/solorail.usdc@,
+            @../../robots/solorail.usda@,
+            @../.obots/solorail.usda@
+        ]
+        prepend payload = @../robots/solorail.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom double3 xformOp:translate = (0.1651, 0.62865, 0.9271)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def "table" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/objects/table/2_export/table.usdc@,
+            @../../objects/table/2_export/table.usdc@,
+            @../../../cad/objects/table/2_export/table.usdc@,
+            @../..//bjects/table.usda@,
+            @../../objects/table.usda@
+        ]
+        prepend payload = @../objects/table.usda@
+    )
+    {
+        token visibility = "inherited"
+    }
+
+    def "table_posts_half" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/objects/table/2_export/table_posts_half.usdc@,
+            @../../objects/table/2_export/table_posts_half.usdc@,
+            @../../../cad/objects/table/2_export/table_posts_half.usdc@,
+            @../../objects/table_posts_half.usdc@,
+            @../../objects/table_posts_half.usda@
+        ]
+        prepend payload = @../objects/table_posts_half.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom double3 xformOp:translate = (0, -0.762, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def "table_posts" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/objects/table/2_export/table_posts.usdc@,
+            @../../objects/table/2_export/table_posts.usdc@,
+            @../../../cad/objects/table/2_export/table_posts.usdc@,
+            @../../objects/table_posts.usda@
+        ]
+        prepend payload = @../objects/table_posts.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom double3 xformOp:translate = (0, 1.143, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+    }
+
+    def "table_posts_01" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/objects/table/2_export/table_posts.usdc@,
+            @../../objects/table/2_export/table_posts.usdc@,
+            @../../../cad/objects/table/2_export/table_posts.usdc@,
+            @../../objects/table_posts.usda@
+        ]
+        prepend payload = @../objects/table_posts.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
+        custom double3 xformOp:translate = (-3.4417, 0.4064, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+    }
+
+    def "table_posts_02" (
+        instanceable = false
+        delete payload = [
+            @file:/home/rmbutler/rpl_omniverse/usd/objects/table/2_export/table_posts.usdc@,
+            @../../objects/table/2_export/table_posts.usdc@,
+            @../../../cad/objects/table/2_export/table_posts.usdc@,
+            @../../objects/table_posts.usda@
+        ]
+        prepend payload = @../objects/table_posts.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
+        custom double3 xformOp:translate = (-3.4417, 1.9304, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+    }
+
+    def "hidex_sealer_platform" (
+        delete payload = [
+            @../../../cad/rooms/bio/2_export/hidex_sealer_platform.usdc@,
+            @../../cad/rooms/bio/2_export/hidex_sealer_platform.usdc@,
+            @../rooms/bio/hidex_sealer_platform.usdc@
+        ]
+        prepend payload = @../rooms/bio/hidex_sealer_platform.usda@
+    )
+    {
+        quatd xformOp:orient = (0.9862856015372314, 0, 0, -0.16504760586067746)
+        double3 xformOp:translate = (-0.240311, -0.535299, 0.927102)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+    }
+}
+
+def Xform "Environment"
+{
+    quatd xformOp:orient = (1, 0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def DistantLight "defaultLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float angle = 1
+        float intensity = 3000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        quatd xformOp:orient = (0.6532814824381883, 0.2705980500730985, 0.27059805007309845, 0.6532814824381882)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+
+over "OmniverseKit_Persp"
+{
+    float focusDistance = 0
+    float fStop = 0
+}
+

@@ -1,0 +1,223 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (-0.9632189156813714, 1.2791543864638732, 0.7712039767150474)
+                double3 target = (-0.01140271283391392, 0.044901669545983625, 0.1549517429609243)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 5)
+                double radius = 5
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./mir250.usda"
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 1
+    startTimeCode = 0
+    subLayers = [
+        @../materials/common.usda@,
+        @../../cad/robots/mir/2_export/mir250.usdc@
+    ]
+    timeCodesPerSecond = 24
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    over "wheel_front_right"
+    {
+        over "wheel_front_right_mesh"
+        {
+            rel material:binding = </World/Looks/common/black> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+    }
+
+    over "wheel_front_left"
+    {
+        over "wheel_front_left_mesh"
+        {
+            rel material:binding = </World/Looks/common/black> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+    }
+
+    over "wheel_back_right"
+    {
+        over "wheel_back_right_mesh"
+        {
+            rel material:binding = </World/Looks/common/black> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+    }
+
+    over "wheel_back_left"
+    {
+        over "wheel_back_left_mesh"
+        {
+            rel material:binding = </World/Looks/common/black> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+    }
+
+    over "base"
+    {
+        over "base_mesh"
+        {
+            rel material:binding = </World/Looks/common/gray> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+    }
+
+    def RectLight "RectLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        color3f color = (0, 0.63106155, 1)
+        float height = 1
+        float intensity = 15000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        float width = 1
+        quatd xformOp:orient = (0.9996573249755574, 0, 0.026176948307869683, 0)
+        double3 xformOp:scale = (0.03, 0.41, 1)
+        double3 xformOp:translate = (-0.24367124183215902, 0, 0.2139308634521206)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def RectLight "RectLight_01" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        color3f color = (0, 0.63106155, 1)
+        float height = 1
+        float intensity = 15000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        float width = 1
+        quatd xformOp:orient = (0.9996573249755574, 0, -0.026176948307869683, 0)
+        double3 xformOp:scale = (0.03, 0.41, 1)
+        double3 xformOp:translate = (0.24367, 0, 0.2139308634521206)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def RectLight "RectLight_02" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        color3f color = (0, 0.63106155, 1)
+        float height = 1
+        float intensity = 15000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        float width = 1
+        quatd xformOp:orient = (0.9996573249755574, 0.026176948307869683, 0, 0)
+        double3 xformOp:scale = (0.24, 0.03, 1)
+        double3 xformOp:translate = (0, 0.3534618682407799, 0.21392999999999837)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def RectLight "RectLight_03" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        color3f color = (0, 0.63106155, 1)
+        float height = 1
+        float intensity = 15000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        float width = 1
+        quatd xformOp:orient = (0.9996573249755574, -0.02617694830786968, 0, 0)
+        double3 xformOp:scale = (0.24, 0.03, 1)
+        double3 xformOp:translate = (0, -0.35346, 0.21392999999999837)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+
+def Xform "Environment"
+{
+    quatd xformOp:orient = (1, 0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def DistantLight "defaultLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float angle = 1
+        float intensity = 3000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        quatd xformOp:orient = (0.6532814824381883, 0.2705980500730985, 0.27059805007309845, 0.6532814824381882)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

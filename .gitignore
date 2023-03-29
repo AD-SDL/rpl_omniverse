@@ -1,5 +1,8 @@
-# Omniverse (Added manually by Rory Butler)
-.thumbs/
+# Other (Added manually by Rory Butler)
+.DS_Store
+0_resources/
+1_edit/
+2_export/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
