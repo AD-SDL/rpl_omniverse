@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (0.8312278568534314, 1.210825486523398, 1.1278440467657747)
-                double3 target = (-0.020048523311236188, -0.08083785055887138, 0.23363214323059067)
+                double3 position = (0.8024389622680573, 1.2319359572554995, 1.1247571776571086)
+                double3 target = (-0.04883741789660967, -0.059727379826770344, 0.23054527412192438)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -281,6 +281,8 @@ def Xform "World"
 
     over "base_plate"
     {
+        token visibility = "inherited"
+
         over "base_plate_mesh"
         {
             rel material:binding = </World/Looks/common/metal> (

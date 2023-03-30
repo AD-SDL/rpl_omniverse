@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (-2.4071498262547864, 2.995509473760227, 3.0703469434693726)
-                double3 target = (0.014237974471370762, 0.24618626460972948, 0.3820149682525904)
+                double3 position = (-1.8404490755816705, 3.8927334685935406, 2.359855792795282)
+                double3 target = (0.014238405261512543, 0.24618622786890887, 0.38201521064030164)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -61,7 +61,7 @@
     startTimeCode = 0
     subLayers = [
         @../materials/vention.usda@,
-        @../../cad/objects/cart_pf400/2_export/cart_pf400.usdc@
+        @../../cad/objects/cart/2_export/cart_pf400.usdc@
     ]
     timeCodesPerSecond = 24
     upAxis = "Z"
@@ -69,33 +69,34 @@
 
 def Xform "World"
 {
-    over "frame"
+    over "cart_pf400"
     {
-        over "frame_mesh"
+        over "cart_pf400_mesh"
         {
             rel material:binding = </World/Looks/vention/vention_bar> (
                 bindMaterialAs = "weakerThanDescendants"
             )
-        }
-    }
 
-    over "bracket"
-    {
-        over "bracket_mesh"
-        {
-            rel material:binding = </World/Looks/vention/vention_bracket> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
+            over "frame"
+            {
+                rel material:binding = </World/Looks/vention/vention_bar> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
 
-    over "feet"
-    {
-        over "feet_mesh"
-        {
-            rel material:binding = </World/Looks/vention/vention_foot> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
+            over "bracket"
+            {
+                rel material:binding = </World/Looks/vention/vention_bracket> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "feet"
+            {
+                rel material:binding = </World/Looks/vention/vention_foot> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
         }
     }
 }
@@ -123,5 +124,11 @@ def Xform "Environment"
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
+}
+
+over "_materials" (
+    active = false
+)
+{
 }
 

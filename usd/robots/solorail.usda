@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (-1.54041989562496, -0.6069291269688919, 1.018890109164518)
-                double3 target = (0.13848928153415563, -0.016039328720334978, 0.18908406672948785)
+                double3 position = (-1.4673735509212595, -0.6953093865263839, 0.8212403134540719)
+                double3 target = (0.08961659109691844, 0.08952050152478674, 0.18791329117484157)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -76,6 +76,27 @@ def Xform "World"
             rel material:binding = </World/Looks/common/metal> (
                 bindMaterialAs = "weakerThanDescendants"
             )
+
+            over "black"
+            {
+                rel material:binding = </World/Looks/common/black> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "metal"
+            {
+                rel material:binding = </World/Looks/common/metal> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "white"
+            {
+                rel material:binding = </World/Looks/common/white> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
         }
     }
 }
@@ -103,5 +124,11 @@ def Xform "Environment"
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
+}
+
+over "_materials" (
+    active = false
+)
+{
 }
 

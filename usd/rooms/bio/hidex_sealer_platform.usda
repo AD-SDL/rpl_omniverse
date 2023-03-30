@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (2.0100850514737063, 2.0100850514737068, 2.0100851228376855)
-                double3 target = (-3.978038431995401e-8, -3.978038298768638e-8, 7.956076863990802e-8)
+                double3 position = (0.8008216625833456, 1.3241086672739661, 0.8070672466575779)
+                double3 target = (-0.05267303085546704, -0.017992800007254228, 0.05872653803312655)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -21,6 +21,7 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
+            string authoring_layer = "./hidex_sealer_platform.usda"
             dictionary muteness = {
             }
         }
@@ -91,6 +92,7 @@ def Xform "World"
 
 def Xform "Environment"
 {
+    token visibility = "inherited"
     quatd xformOp:orient = (1, 0, 0, 0)
     double3 xformOp:scale = (1, 1, 1)
     double3 xformOp:translate = (0, 0, 0)

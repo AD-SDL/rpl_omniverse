@@ -1,6 +1,7 @@
 from multiprocessing import Process
 from pathlib import Path
 from time import time
+import sys
 
 # https://docs.blender.org/api/current/bpy.ops.wm.html#bpy.ops.wm.usd_export
 # bpy.ops.export_mesh.stl(filepath='')
@@ -32,6 +33,7 @@ def convert_blend_to_usd(fname_blend, fname_usd):
             m.quad_method = 'BEAUTY'
 
             # Mesh names show up in OV, so make it pretty
+            print('    Renaming', obj.data.name, 'to', obj.name + '_mesh')
             obj.data.name = obj.name + '_mesh'
 
             # Select so we can filter at usd_export
@@ -44,10 +46,10 @@ def convert_blend_to_usd(fname_blend, fname_usd):
         selected_objects_only=True,
         visible_objects_only=True,
         export_animation=False,
-        export_hair=False,
+        export_hair=True,
         export_uvmaps=True,
         export_normals=True,
-        export_materials=False,
+        export_materials=True,
         use_instancing=True,
         generate_preview_surface=False,
         export_textures=True,
@@ -111,8 +113,13 @@ def do(fname_blend, fname_usd):
 def main():
     S = time()
 
+    filter_ = sys.argv[1:]
+
     for fname_blend in Path('../cad/').rglob('*.blend'):
         s = time()
+
+        if len(filter_) and str(fname_blend.with_suffix('').name) not in filter_:
+            continue
 
         b1 = fname_blend.with_suffix('.blend1')
         if b1.is_file():

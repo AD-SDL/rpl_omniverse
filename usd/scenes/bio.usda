@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (-2.8045769081758922, 0.8842713430644306, 2.6372275532221408)
-                double3 target = (-0.05094746858004262, 0.11465765916616333, 1.118271043099299)
+                double3 position = (-1.5673285989659165, 0.7831344172809463, 1.6785575456278317)
+                double3 target = (-0.35775679690567896, 0.19421587845067134, 1.2489130047808115)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -294,6 +294,7 @@ def Xform "World"
 
 def Xform "Environment"
 {
+    token visibility = "inherited"
     quatd xformOp:orient = (1, 0, 0, 0)
     double3 xformOp:scale = (1, 1, 1)
     double3 xformOp:translate = (0, 0, 0)
@@ -315,11 +316,5 @@ def Xform "Environment"
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
-}
-
-over "OmniverseKit_Persp"
-{
-    float focusDistance = 0
-    float fStop = 0
 }
 

@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (0.4988626088435366, 0.9448418507993259, 0.6410437317552424)
-                double3 target = (-0.045643299203283694, -0.05743649885516988, 0.11897894527932851)
+                double3 position = (0.5997754832830539, 0.7642782231683145, 0.5041801251371355)
+                double3 target = (-0.07355544463090169, -0.04342444990784544, 0.130568670857248)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -78,17 +78,41 @@ def Xform "World"
                 bindMaterialAs = "weakerThanDescendants"
             )
             token visibility = "inherited"
-        }
-    }
 
-    over "frame_front"
-    {
-        over "frame_front_mesh"
-        {
-            rel material:binding = </World/Looks/sealer/sealer_purple> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-            token visibility = "inherited"
+            over "frame_white"
+            {
+                rel material:binding = </World/Looks/sealer/sealer_frame_white> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "frame_purple"
+            {
+                rel material:binding = </World/Looks/sealer/sealer_purple> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "frame_screen"
+            {
+                rel material:binding = </World/Looks/sealer/sealer_screen> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "frame_tape"
+            {
+                rel material:binding = </World/Looks/common/white> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "frame_black"
+            {
+                rel material:binding = </World/Looks/common/black> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
         }
     }
 
@@ -103,50 +127,6 @@ def Xform "World"
         }
     }
 
-    over "screen"
-    {
-        over "screen_mesh"
-        {
-            rel material:binding = </World/Looks/sealer/sealer_screen> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-            token visibility = "inherited"
-        }
-    }
-
-    over "wheel"
-    {
-        over "wheel_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-            token visibility = "inherited"
-        }
-    }
-
-    over "feet"
-    {
-        over "feet_mesh"
-        {
-            rel material:binding = </World/Looks/common/black> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-            token visibility = "inherited"
-        }
-    }
-
-    over "ports_back"
-    {
-        over "ports_back_mesh"
-        {
-            rel material:binding = </World/Looks/common/black> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-            token visibility = "inherited"
-        }
-    }
-
     over "plate"
     {
         over "plate_mesh"
@@ -155,17 +135,6 @@ def Xform "World"
                 bindMaterialAs = "weakerThanDescendants"
             )
             token visibility = "invisible"
-        }
-    }
-
-    over "metal"
-    {
-        over "metal_mesh"
-        {
-            rel material:binding = </World/Looks/common/metal> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-            token visibility = "inherited"
         }
     }
 }
@@ -193,5 +162,11 @@ def Xform "Environment"
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
+}
+
+over "_materials" (
+    active = false
+)
+{
 }
 

@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (-0.9898406672553718, 1.0812068279705782, 1.0522005875971945)
-                double3 target = (0.0017584650951461, 0.06046888142639828, 0.3947993324365562)
+                double3 position = (-1.145994456340415, 0.83490760594092, 0.9198722959900479)
+                double3 target = (0.0017585935119803775, 0.060468862215573016, 0.3947996164510441)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -97,6 +97,20 @@ def Xform "World"
             rel material:binding = </World/Looks/platecrane/platecrane_sciclops_white> (
                 bindMaterialAs = "weakerThanDescendants"
             )
+
+            over "arm_link_2_white"
+            {
+                rel material:binding = </World/Looks/platecrane/platecrane_sciclops_white> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "arm_link_2_black"
+            {
+                rel material:binding = </World/Looks/common/black_glossy> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
         }
     }
 
@@ -107,6 +121,20 @@ def Xform "World"
             rel material:binding = </World/Looks/common/black> (
                 bindMaterialAs = "weakerThanDescendants"
             )
+
+            over "gripper_black"
+            {
+                rel material:binding = </World/Looks/common/black_glossy> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "gripper_metal"
+            {
+                rel material:binding = </World/Looks/common/metal> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
         }
     }
 
@@ -117,6 +145,34 @@ def Xform "World"
             rel material:binding = </World/Looks/platecrane/platecrane_sciclops_white> (
                 bindMaterialAs = "weakerThanDescendants"
             )
+
+            over "base_white"
+            {
+                rel material:binding = </World/Looks/platecrane/platecrane_sciclops_white> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "base_black"
+            {
+                rel material:binding = </World/Looks/common/black_textured> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "base_ports"
+            {
+                rel material:binding = </World/Looks/common/black> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+
+            over "base_metal"
+            {
+                rel material:binding = </World/Looks/common/metal> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
         }
     }
 
@@ -164,5 +220,11 @@ def Xform "Environment"
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
+}
+
+over "_materials" (
+    active = false
+)
+{
 }
 

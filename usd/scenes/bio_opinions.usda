@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (0.3620500999185258, 0.8924408470428674, 0.40051902383882465)
-                double3 target = (-0.04410504537244547, -0.013035600731843622, 0.08288526830518278)
+                double3 position = (0.3949381593784909, 0.0948176519382251, 2.816793180615379)
+                double3 target = (-0.18343330236860572, 0.16494107289168022, 1.144852050450599)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -21,13 +21,14 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
-            string authoring_layer = "./hidex.usda"
+            string authoring_layer = "./bio_opinion_ot2.usda"
             dictionary muteness = {
             }
         }
         dictionary renderSettings = {
             float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
             float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            int "rtx:pathtracing:totalSpp" = 64
             float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
             float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
             float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
@@ -52,6 +53,7 @@
             float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
             float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
             float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            string "rtx:rendermode" = "PathTracing"
             float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
         }
     }
@@ -60,8 +62,8 @@
     metersPerUnit = 1
     startTimeCode = 0
     subLayers = [
-        @../materials/common.usda@,
-        @../../cad/robots/hidex/2_export/hidex.usdc@
+        @./bio_opinion_ot2.usda@,
+        @./bio.usda@
     ]
     timeCodesPerSecond = 24
     upAxis = "Z"
@@ -69,50 +71,6 @@
 
 def Xform "World"
 {
-    over "body"
-    {
-        over "body_mesh"
-        {
-            rel material:binding = </World/Looks/common/gray> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-            token visibility = "inherited"
-
-            over "dark_gray"
-            {
-                rel material:binding = </World/Looks/common/gray> (
-                    bindMaterialAs = "weakerThanDescendants"
-                )
-            }
-
-            over "light_gray"
-            {
-                rel material:binding = </World/Looks/common/white> (
-                    bindMaterialAs = "weakerThanDescendants"
-                )
-            }
-        }
-    }
-
-    over "door"
-    {
-        over "door_mesh"
-        {
-            rel material:binding = </World/Looks/common/gray> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "plate"
-    {
-        over "plate_mesh"
-        {
-            rel material:binding = </World/Looks/common/metal> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
 }
 
 def Xform "Environment"
@@ -138,11 +96,5 @@ def Xform "Environment"
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
-}
-
-over "_materials" (
-    active = false
-)
-{
 }
 

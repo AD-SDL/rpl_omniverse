@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (3.1458662695252997, 3.6314585597212923, 2.779067408635114)
-                double3 target = (-0.24469068810871475, -0.5887345853753625, 0.8127398872423233)
+                double3 position = (3.233218904447942, 3.6451943321373887, 2.5876599907172952)
+                double3 target = (-0.24469112157183304, -0.5887341177345853, 0.8127396210827162)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -79,16 +79,6 @@ def Xform "World"
         }
     }
 
-    over "posts"
-    {
-        over "posts_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
     over "top"
     {
         over "top_mesh"
@@ -97,6 +87,11 @@ def Xform "World"
                 bindMaterialAs = "weakerThanDescendants"
             )
         }
+    }
+
+    over "Looks"
+    {
+        token visibility = "inherited"
     }
 }
 

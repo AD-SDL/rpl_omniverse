@@ -1,0 +1,127 @@
+#usda 1.0
+(
+    upAxis = "Z"
+)
+
+over "World"
+{
+    over "table_posts_02" (
+        active = false
+    )
+    {
+    }
+
+    over "table_posts_01" (
+        active = false
+    )
+    {
+    }
+
+    over "hidex"
+    {
+        custom quatd xformOp:orient = (0.9918172834621886, 0, 0, -0.12766548564778465)
+        float3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.16607936334719775, -0.4816404178865531, 1.0035)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    over "hidex_sealer_platform"
+    {
+        quatd xformOp:orient = (0.9918172834621886, 0, 0, -0.12766548564778465)
+        custom double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (-0.18180289513182815, -0.5471820615274675, 0.927102)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    over "sealer"
+    {
+        custom quatd xformOp:orient = (0.9918172834621886, 0, 0, -0.12766548564778465)
+        float3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.19360426640582706, -0.6088301202532724, 1.3335)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    over "peeler"
+    {
+        custom quatd xformOp:orient = (0.19930187840249422, 0, 0, -0.9799381415503928)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.43558130235045106, 0.5966265118247177, 0.9279499999999876)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    over "platecrane_ex"
+    {
+        quatd xformOp:orient = (-0.7826672382725043, 0, 0, -0.622440353877294)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.01589, 0.18772, 0.9271)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "arm_link_2"
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) )
+            double3 xformOp:translate = (-1.6653345369377348e-16, 0.15799999999999914, 0.05383345508782156)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        over "gripper"
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-1.6653345369377348e-16, 0.15799999999999914, 0.05383345508782156)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        over "finger_left"
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-1.6653345369377348e-16, 0.15799999999999914, 0.05383345508782156)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        over "finger_right"
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-1.6653345369377348e-16, 0.15799999999999914, 0.05383345508782156)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        over "arm_link_1"
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-3.3306690738754696e-16, -7.632783294297951e-17, 0.05383345508782156)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def "ot2" (
+        instanceable = false
+        prepend payload = @../robots/ot2.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, -0.7071067811865475)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.5347838765239425, 0.03931020858535876, 0.928002152065821)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "glass_left"
+        {
+            token visibility = "invisible"
+        }
+
+        over "glass_door"
+        {
+            token visibility = "invisible"
+        }
+
+        over "glass_front"
+        {
+            token visibility = "invisible"
+        }
+    }
+}
+

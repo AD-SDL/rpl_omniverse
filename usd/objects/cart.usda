@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (1.8362805074462916, -1.2279485113561894, 1.4398902806969636)
-                double3 target = (0.17328106297957846, -0.07937327414955342, 0.5743346905526445)
+                double3 position = (1.9207592039460748, -0.9721565699097006, 1.565917688141307)
+                double3 target = (0.17328109347322473, -0.0793732477568988, 0.5743346605762929)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -70,63 +70,48 @@
 
 def Xform "World"
 {
-    over "frame"
+    over "cart"
     {
-        over "frame_mesh"
+        over "cart_mesh"
         {
             rel material:binding = </World/Looks/vention/vention_bar> (
                 bindMaterialAs = "weakerThanDescendants"
             )
-        }
-    }
 
-    over "bracket"
-    {
-        over "bracket_mesh"
-        {
-            rel material:binding = </World/Looks/vention/vention_bracket> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
+            over "frame"
+            {
+                rel material:binding = </World/Looks/vention/vention_bar> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
 
-    over "caster_base"
-    {
-        over "caster_base_mesh"
-        {
-            rel material:binding = </World/Looks/common/metal> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
+            over "bracket"
+            {
+                rel material:binding = </World/Looks/vention/vention_bracket> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
 
-    over "wheel"
-    {
-        over "wheel_mesh"
-        {
-            rel material:binding = </World/Looks/common/black> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
+            over "platform_low"
+            {
+                rel material:binding = </World/Looks/common/black_glossy> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
 
-    over "platform_high"
-    {
-        over "platform_high_mesh"
-        {
-            rel material:binding = </World/Looks/common/black_textured> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
+            over "platform_high"
+            {
+                rel material:binding = </World/Looks/common/black_textured> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
 
-    over "platform_low"
-    {
-        over "platform_low_mesh"
-        {
-            rel material:binding = </World/Looks/common/black_glossy> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
+            over "wheel"
+            {
+                rel material:binding = </World/Looks/common/black> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
         }
     }
 }
@@ -154,5 +139,11 @@ def Xform "Environment"
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
+}
+
+over "_materials" (
+    active = false
+)
+{
 }
 

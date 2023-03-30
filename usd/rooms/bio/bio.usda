@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (-11.94115436927203, 0.08834536066198577, 7.130881776374291)
-                double3 target = (-0.2401717923031068, -0.8027060725023129, -0.04301929935760018)
+                double3 position = (-11.079847138987532, -0.34155920045836885, 1.637072310955215)
+                double3 target = (0.07834192761927916, -0.15977298318370547, 1.3959848251277702)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -158,6 +158,11 @@ def Xform "World"
                 bindMaterialAs = "weakerThanDescendants"
             )
         }
+    }
+
+    over "Looks"
+    {
+        token visibility = "inherited"
     }
 }
 
