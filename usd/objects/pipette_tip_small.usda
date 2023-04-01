@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (0.3949381593784909, 0.0948176519382251, 2.816793180615379)
-                double3 target = (-0.18343330236860572, 0.16494107289168022, 1.144852050450599)
+                double3 position = (0.03405153608824956, 0.0277856766354032, 0.0003127157589414921)
+                double3 target = (-0.0006171231744866029, -0.0008578852625504459, -0.016741071104387058)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -21,14 +21,13 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
-            string authoring_layer = "./bio_opinion_ot2.usda"
+            string authoring_layer = "./pipette_tip_small.usda"
             dictionary muteness = {
             }
         }
         dictionary renderSettings = {
             float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
             float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
-            int "rtx:pathtracing:totalSpp" = 64
             float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
             float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
             float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
@@ -53,7 +52,6 @@
             float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
             float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
             float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
-            string "rtx:rendermode" = "PathTracing"
             float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
         }
     }
@@ -62,8 +60,8 @@
     metersPerUnit = 1
     startTimeCode = 0
     subLayers = [
-        @./bio_opinion_ot2.usda@,
-        @./bio.usda@
+        @../materials/common.usda@,
+        @../../cad/objects/pipette_tip/2_export/pipette_tip_small.usdc@
     ]
     timeCodesPerSecond = 24
     upAxis = "Z"
@@ -71,6 +69,15 @@
 
 def Xform "World"
 {
+    over "pipette_tip_small"
+    {
+        over "pipette_tip_small_mesh"
+        {
+            rel material:binding = </World/Looks/common/transparent_plastic> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+    }
 }
 
 def Xform "Environment"

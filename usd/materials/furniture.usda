@@ -21,6 +21,7 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
+            string authoring_layer = "./furniture.usda"
             dictionary muteness = {
             }
         }
@@ -58,12 +59,64 @@
     endTimeCode = 100
     metersPerUnit = 1
     startTimeCode = 0
+    subLayers = [
+        @./furniture/desk_top.usda@
+    ]
     timeCodesPerSecond = 24
     upAxis = "Z"
 )
 
 def Xform "World"
 {
+    over "Looks"
+    {
+        over "furniture"
+        {
+            def Material "fabric"
+            {
+                token outputs:mdl:displacement.connect = </World/Looks/furniture/fabric/Shader.outputs:out>
+                token outputs:mdl:surface.connect = </World/Looks/furniture/fabric/Shader.outputs:out>
+                token outputs:mdl:volume.connect = </World/Looks/furniture/fabric/Shader.outputs:out>
+
+                def Shader "Shader"
+                {
+                    uniform token info:implementationSource = "sourceAsset"
+                    uniform asset info:mdl:sourceAsset = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Textiles/Cloth_Gray.mdl@
+                    uniform token info:mdl:sourceAsset:subIdentifier = "Cloth_Gray"
+                    float2 inputs:detail_texture_scale = (2, 2) (
+                        customData = {
+                            float2 default = (20, 20)
+                        }
+                        displayGroup = "UV"
+                        displayName = "Detail Texture Tiling"
+                        doc = "Controls the repetition of the detail texture."
+                        hidden = false
+                    )
+                    color3f inputs:diffuse_tint = (0.22784811, 0.22784583, 0.22784583) (
+                        customData = {
+                            float3 default = (1, 1, 1)
+                        }
+                        displayGroup = "Albedo"
+                        displayName = "Color Tint"
+                        doc = "When enabled, this color value is multiplied over the final albedo color"
+                        hidden = false
+                    )
+                    float2 inputs:texture_scale = (1, 1) (
+                        customData = {
+                            float2 default = (1, 1)
+                        }
+                        displayGroup = "UV"
+                        displayName = "Texture Tiling"
+                        doc = "Controls the repetition of the texture."
+                        hidden = false
+                    )
+                    token outputs:out (
+                        renderType = "material"
+                    )
+                }
+            }
+        }
+    }
 }
 
 def Xform "Environment"

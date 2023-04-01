@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (2.8769697568256665, -2.1022740773602235, 1.329142057269981)
-                double3 target = (0.029890934315427664, 0.15139257137349071, 0.5889637945923681)
+                double3 position = (-0.023654882311747567, -4.108131995300406, 4.522437256291244)
+                double3 target = (-0.02364877590714951, 0.4413044908711772, 0.5613766046676427)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -21,7 +21,7 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
-            string authoring_layer = "./pf400.usda"
+            string authoring_layer = "./macbook.usda"
             dictionary muteness = {
             }
         }
@@ -60,8 +60,8 @@
     metersPerUnit = 1
     startTimeCode = 0
     subLayers = [
-        @../materials/common.usda@,
-        @../../cad/robots/pf400/2_export/pf400.usdc@
+        @file:/home/rmbutler/rpl_omniverse/usd/materials/common.usda@,
+        @../../cad/objects/macbook/2_export/macbook.usdc@
     ]
     timeCodesPerSecond = 24
     upAxis = "Z"
@@ -69,91 +69,41 @@
 
 def Xform "World"
 {
-    over "column"
+    over "base"
     {
-        over "column_mesh"
+        over "base_mesh"
         {
-            rel material:binding = </World/Looks/common/white> (
+            rel material:binding = </World/Looks/common/gray> (
                 bindMaterialAs = "weakerThanDescendants"
             )
         }
     }
 
-    over "rail_base"
+    over "screen"
     {
-        over "rail_base_mesh"
+        over "screen_mesh"
         {
-            rel material:binding = </World/Looks/common/white> (
+            rel material:binding = </World/Looks/common/gray> (
                 bindMaterialAs = "weakerThanDescendants"
             )
         }
     }
 
-    over "carriage"
+    over "keys"
     {
-        over "carriage_mesh"
+        over "keys_mesh"
         {
-            rel material:binding = </World/Looks/common/white> (
+            rel material:binding = </World/Looks/common/black> (
                 bindMaterialAs = "weakerThanDescendants"
             )
         }
     }
 
-    over "link_inner"
+    over "key_light"
     {
-        over "link_inner_mesh"
+        over "key_light_mesh"
         {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "link_outer"
-    {
-        over "link_outer_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "hand"
-    {
-        over "hand_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "finger_left"
-    {
-        over "finger_left_mesh"
-        {
-            rel material:binding = </World/Looks/common/metal> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "finger_right"
-    {
-        over "finger_right_mesh"
-        {
-            rel material:binding = </World/Looks/common/metal> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "rail"
-    {
-        over "rail_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
+            rel material:binding = </World/Looks/common/glow_white> (
                 bindMaterialAs = "weakerThanDescendants"
             )
         }
@@ -183,5 +133,11 @@ def Xform "Environment"
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
+}
+
+over "_materials" (
+    active = false
+)
+{
 }
 

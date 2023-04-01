@@ -21,7 +21,7 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
-            string authoring_layer = "./rpl_floor.usda"
+            string authoring_layer = "./rpl_wall_paint_gray.usda"
         }
         dictionary renderSettings = {
             float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
@@ -61,15 +61,15 @@ def Xform "World"
 {
     def Scope "Looks"
     {
-        def Scope "rpl"
+        def Scope "furniture"
         {
-            def Material "rpl_floor"
+            def Material "desk_top"
             {
-                token outputs:mdl:displacement.connect = </World/Looks/rpl/rpl_floor/Shader.outputs:out>
-                token outputs:mdl:surface.connect = </World/Looks/rpl/rpl_floor/Shader.outputs:out>
-                token outputs:mdl:volume.connect = </World/Looks/rpl/rpl_floor/Shader.outputs:out>
+                token outputs:mdl:displacement.connect = </World/Looks/furniture/desk_top/Shader.outputs:out>
+                token outputs:mdl:surface.connect = </World/Looks/furniture/desk_top/Shader.outputs:out>
+                token outputs:mdl:volume.connect = </World/Looks/furniture/desk_top/Shader.outputs:out>
                 token ui:displayGroup = "Material Graphs"
-                token ui:displayName = "Floor"
+                token ui:displayName = "BaseWalls"
                 int ui:order = 1024
                 uniform token[] xformOpOrder = []
 
@@ -77,8 +77,8 @@ def Xform "World"
                 {
                     reorder properties = ["inputs:flip_tangent_u", "inputs:enable_opacity", "inputs:opacity_texture", "inputs:opacity_constant", "inputs:enable_opacity_texture", "inputs:opacity_mode", "inputs:opacity_threshold", "inputs:bump_factor", "inputs:normalmap_texture", "inputs:detail_bump_factor", "inputs:detail_normalmap_texture", "inputs:emissive_intensity", "inputs:flip_tangent_v", "inputs:project_uvw", "inputs:world_or_object", "inputs:uv_space_index", "inputs:texture_translate", "inputs:texture_rotate", "inputs:texture_scale", "inputs:detail_texture_translate", "inputs:detail_texture_rotate", "inputs:detail_texture_scale", "inputs:metallic_texture", "inputs:diffuse_texture", "inputs:albedo_desaturation", "inputs:albedo_add", "inputs:albedo_brightness", "inputs:diffuse_tint", "inputs:reflection_roughness_constant", "inputs:reflection_roughness_texture_influence", "inputs:reflectionroughness_texture", "inputs:metallic_constant", "inputs:metallic_texture_influence", "inputs:diffuse_color_constant", "inputs:specular_level", "inputs:enable_ORM_texture", "inputs:ORM_texture", "inputs:ao_to_diffuse", "inputs:ao_texture", "inputs:enable_emission", "inputs:emissive_color", "inputs:emissive_color_texture", "inputs:emissive_mask_texture"]
                     uniform token info:implementationSource = "sourceAsset"
-                    uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
-                    uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                    uniform asset info:mdl:sourceAsset = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Miscellaneous/Paint_Matte.mdl@
+                    uniform token info:mdl:sourceAsset:subIdentifier = "Paint_Matte"
                     float inputs:albedo_add = 0 (
                         customData = {
                             float default = 0
@@ -212,16 +212,16 @@ def Xform "World"
                         doc = "This is the albedo base color"
                         hidden = false
                     )
-                    asset inputs:diffuse_texture = @../../../cad/rooms/rpl/2_export/rpl_floor.jpg@ (
-                        colorSpace = "auto"
+                    asset inputs:diffuse_texture = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Miscellaneous/Paint_Matte/Paint_Matte_Finish_BaseColor.png@ (
+                        colorSpace = "sRGB"
                         customData = {
-                            asset default = @@
+                            asset default = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Miscellaneous/Paint_Matte/Paint_Matte_Finish_BaseColor.png@
                         }
                         displayGroup = "Albedo"
                         displayName = "Albedo Map"
                         hidden = false
                     )
-                    color3f inputs:diffuse_tint = (1, 1, 1) (
+                    color3f inputs:diffuse_tint = (0.12236285, 0.10208338, 0.06711886) (
                         customData = {
                             float3 default = (1, 1, 1)
                         }
@@ -295,9 +295,9 @@ def Xform "World"
                         doc = "Enables or disables the usage of the opacity texture map"
                         hidden = false
                     )
-                    bool inputs:enable_ORM_texture = 0 (
+                    bool inputs:enable_ORM_texture = 1 (
                         customData = {
-                            bool default = 0
+                            bool default = 1
                         }
                         displayGroup = "Reflectivity"
                         displayName = "Enable ORM Texture"
@@ -363,10 +363,10 @@ def Xform "World"
                         doc = "Blends between the constant value and the lookup of the metallic texture"
                         hidden = false
                     )
-                    asset inputs:normalmap_texture = @@ (
+                    asset inputs:normalmap_texture = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Miscellaneous/Paint_Matte/Paint_Matte_Finish_N.png@ (
                         colorSpace = "raw"
                         customData = {
-                            asset default = @@
+                            asset default = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Miscellaneous/Paint_Matte/Paint_Matte_Finish_N.png@
                         }
                         displayGroup = "Normal"
                         displayName = "Normal Map"
@@ -421,10 +421,10 @@ def Xform "World"
                         doc = "If 0, use fractional opacity values 'as is'; if > 0, remap opacity values to 1 when >= threshold and to 0 otherwise"
                         hidden = false
                     )
-                    asset inputs:ORM_texture = @@ (
+                    asset inputs:ORM_texture = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Miscellaneous/Paint_Matte/Paint_Matte_Finish_ORM.png@ (
                         colorSpace = "raw"
                         customData = {
-                            asset default = @@
+                            asset default = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Miscellaneous/Paint_Matte/Paint_Matte_Finish_ORM.png@
                         }
                         displayGroup = "Reflectivity"
                         displayName = "ORM Map"
@@ -440,7 +440,7 @@ def Xform "World"
                         doc = "When enabled, UV coordinates will be generated by projecting them from a coordinate system"
                         hidden = false
                     )
-                    float inputs:reflection_roughness_constant = 0.5 (
+                    float inputs:reflection_roughness_constant = 1 (
                         customData = {
                             float default = 0.5
                             dictionary range = {
@@ -453,9 +453,9 @@ def Xform "World"
                         doc = "Higher roughness values lead to more blurry reflections"
                         hidden = false
                     )
-                    float inputs:reflection_roughness_texture_influence = 0 (
+                    float inputs:reflection_roughness_texture_influence = 1 (
                         customData = {
-                            float default = 0
+                            float default = 1
                             dictionary range = {
                                 float max = 1
                                 float min = 0
@@ -497,7 +497,7 @@ def Xform "World"
                         doc = "Rotates angle of texture in degrees."
                         hidden = false
                     )
-                    float2 inputs:texture_scale = (6.2, 6.2) (
+                    float2 inputs:texture_scale = (1, 1) (
                         customData = {
                             float2 default = (1, 1)
                         }
@@ -506,7 +506,7 @@ def Xform "World"
                         doc = "Controls the repetition of the texture."
                         hidden = false
                     )
-                    float2 inputs:texture_translate = (0.1, 0.08) (
+                    float2 inputs:texture_translate = (0, 0) (
                         customData = {
                             float2 default = (0, 0)
                         }

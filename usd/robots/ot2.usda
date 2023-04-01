@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (0.8024389622680573, 1.2319359572554995, 1.1247571776571086)
-                double3 target = (-0.04883741789660967, -0.059727379826770344, 0.23054527412192438)
+                double3 position = (0.6317493641807247, 1.555313878026816, 1.0251169549746335)
+                double3 target = (0.006277236477481352, 0.11935379018409398, 0.38021413752539646)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -379,10 +379,77 @@ def Xform "World"
             token visibility = "inherited"
         }
     }
+
+    def RectLight "RectLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        bool enableColorTemperature = 0
+        float height = 1
+        float intensity = 300000
+        bool normalize = 0
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token visibility = "inherited"
+        bool visibleInPrimaryRay = 1
+        float width = 1
+        quatd xformOp:orient = (0.998134798421867, 0, -0.06104853953485594, 0)
+        double3 xformOp:scale = (0.016, 0.5, 1)
+        double3 xformOp:translate = (-0.285, 0, 0.4775)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def RectLight "RectLight_01" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        bool enableColorTemperature = 0
+        float height = 1
+        float intensity = 300000
+        bool normalize = 0
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token visibility = "inherited"
+        bool visibleInPrimaryRay = 1
+        float width = 1
+        quatd xformOp:orient = (0.998134798421867, 0, 0.061048539534855936, 0)
+        double3 xformOp:scale = (0.016, 0.5, 1)
+        double3 xformOp:translate = (0.285, 0, 0.4775)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def RectLight "RectLight_02" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        bool enableColorTemperature = 0
+        float height = 1
+        float intensity = 300000
+        bool normalize = 0
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token visibility = "inherited"
+        bool visibleInPrimaryRay = 1
+        float width = 1
+        quatd xformOp:orient = (0.998134798421867, -0.06104853953485594, 0, 0)
+        double3 xformOp:scale = (0.5, 0.016, 1)
+        double3 xformOp:translate = (0, 0.26021734584034206, 0.6242310015366122)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
 }
 
 def Xform "Environment"
 {
+    token visibility = "invisible"
     quatd xformOp:orient = (1, 0, 0, 0)
     double3 xformOp:scale = (1, 1, 1)
     double3 xformOp:translate = (0, 0, 0)

@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (2.8769697568256665, -2.1022740773602235, 1.329142057269981)
-                double3 target = (0.029890934315427664, 0.15139257137349071, 0.5889637945923681)
+                double3 position = (0.040572326581694323, 0.03816979474003273, -0.011191590819313054)
+                double3 target = (-0.0022225774511846763, -0.0020003508006703266, -0.026399724894156724)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -21,7 +21,7 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
-            string authoring_layer = "./pf400.usda"
+            string authoring_layer = "./pipette_tip_large.usda"
             dictionary muteness = {
             }
         }
@@ -61,7 +61,7 @@
     startTimeCode = 0
     subLayers = [
         @../materials/common.usda@,
-        @../../cad/robots/pf400/2_export/pf400.usdc@
+        @../../cad/objects/pipette_tip/2_export/pipette_tip_large.usdc@
     ]
     timeCodesPerSecond = 24
     upAxis = "Z"
@@ -69,91 +69,11 @@
 
 def Xform "World"
 {
-    over "column"
+    over "pipette_tip_large"
     {
-        over "column_mesh"
+        over "pipette_tip_large_mesh"
         {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "rail_base"
-    {
-        over "rail_base_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "carriage"
-    {
-        over "carriage_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "link_inner"
-    {
-        over "link_inner_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "link_outer"
-    {
-        over "link_outer_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "hand"
-    {
-        over "hand_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "finger_left"
-    {
-        over "finger_left_mesh"
-        {
-            rel material:binding = </World/Looks/common/metal> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "finger_right"
-    {
-        over "finger_right_mesh"
-        {
-            rel material:binding = </World/Looks/common/metal> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-        }
-    }
-
-    over "rail"
-    {
-        over "rail_mesh"
-        {
-            rel material:binding = </World/Looks/common/white> (
+            rel material:binding = </World/Looks/common/transparent_plastic> (
                 bindMaterialAs = "weakerThanDescendants"
             )
         }

@@ -21,7 +21,7 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
-            string authoring_layer = "./science_table_legs.usda"
+            string authoring_layer = "./white.usda"
         }
         dictionary renderSettings = {
             float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
@@ -61,15 +61,15 @@ def Xform "World"
 {
     def Scope "Looks"
     {
-        def Scope "furniture"
+        def Scope "common"
         {
-            def Material "science_table_legs"
+            def Material "glow_white"
             {
-                token outputs:mdl:displacement.connect = </World/Looks/furniture/science_table_legs/Shader.outputs:out>
-                token outputs:mdl:surface.connect = </World/Looks/furniture/science_table_legs/Shader.outputs:out>
-                token outputs:mdl:volume.connect = </World/Looks/furniture/science_table_legs/Shader.outputs:out>
+                token outputs:mdl:displacement.connect = </World/Looks/common/glow_white/Shader.outputs:out>
+                token outputs:mdl:surface.connect = </World/Looks/common/glow_white/Shader.outputs:out>
+                token outputs:mdl:volume.connect = </World/Looks/common/glow_white/Shader.outputs:out>
                 token ui:displayGroup = "Material Graphs"
-                token ui:displayName = "White"
+                token ui:displayName = "plate"
                 int ui:order = 1024
                 uniform token[] xformOpOrder = []
 
@@ -203,7 +203,7 @@ def Xform "World"
                         doc = "Controls the position of the detail texture."
                         hidden = false
                     )
-                    color3f inputs:diffuse_color_constant = (0.5443038, 0.54429835, 0.54429835) (
+                    color3f inputs:diffuse_color_constant = (1, 0.99999, 0.99999) (
                         customData = {
                             float3 default = (0.2, 0.2, 0.2)
                         }
@@ -221,7 +221,7 @@ def Xform "World"
                         displayName = "Albedo Map"
                         hidden = false
                     )
-                    color3f inputs:diffuse_tint = (1, 0.99999, 0.99999) (
+                    color3f inputs:diffuse_tint = (1, 1, 1) (
                         customData = {
                             float3 default = (1, 1, 1)
                         }
@@ -230,7 +230,7 @@ def Xform "World"
                         doc = "When enabled, this color value is multiplied over the final albedo color"
                         hidden = false
                     )
-                    color3f inputs:emissive_color = (1, 0.1, 0.1) (
+                    color3f inputs:emissive_color = (1, 1, 1) (
                         customData = {
                             float3 default = (1, 0.1, 0.1)
                         }
@@ -249,7 +249,7 @@ def Xform "World"
                         doc = "The emissive color texture"
                         hidden = false
                     )
-                    float inputs:emissive_intensity = 40 (
+                    float inputs:emissive_intensity = 10000 (
                         customData = {
                             float default = 40
                         }
@@ -268,7 +268,7 @@ def Xform "World"
                         doc = "The texture masking the emissive color"
                         hidden = false
                     )
-                    bool inputs:enable_emission = 0 (
+                    bool inputs:enable_emission = 1 (
                         customData = {
                             bool default = 0
                         }
@@ -537,9 +537,7 @@ def Xform "World"
                         doc = "When enabled, uses world space for projection, otherwise object space is used"
                         hidden = false
                     )
-                    token outputs:out (
-                        renderType = "material"
-                    )
+                    token outputs:out
                 }
             }
         }

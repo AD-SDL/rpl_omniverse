@@ -1,0 +1,314 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (-2.442424529369, 4.001726336787116, 2.568068852147453)
+                double3 target = (-0.38243537790787174, 0.9265893823130802, 1.2604287719289102)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0.15821167000988656, -0.3258007663674366, 50001.38242090145)
+                double radius = 4.716829681396485
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./cell_base.usda"
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 1
+    startTimeCode = 0
+    timeCodesPerSecond = 24
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def "cart" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+    )
+    {
+        custom quatd xformOp:orient = (1, 0, 0, 0)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.75, 1.25, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "cart_01" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+    )
+    {
+        custom quatd xformOp:orient = (1, 0, 0, 0)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.75, 0.5, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "cart_02" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+    )
+    {
+        custom quatd xformOp:orient = (1, 0, 0, 0)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.75, -0.25, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "cart_03" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+    )
+    {
+        custom quatd xformOp:orient = (1, 0, 0, 0)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.75, -1, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "cart_04" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+    )
+    {
+        custom quatd xformOp:orient = (1, 0, 0, 0)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.75, 1.25, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "cart_05" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+    )
+    {
+        custom quatd xformOp:orient = (1, 0, 0, 0)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.75, 0.5, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "cart_06" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+    )
+    {
+        custom quatd xformOp:orient = (1, 0, 0, 0)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.75, -0.25, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "cart_07" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+    )
+    {
+        custom quatd xformOp:orient = (1, 0, 0, 0)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.75, -1, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "cart_pf400" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart_pf400.usda@
+    )
+    {
+        custom quatd xformOp:orient = (1, 0, 0, 0)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0, 0.2045123205862789, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "pf400" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/pf400.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0, -0.012384311765972406, 0.842)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "platecrane_sciclops" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/platecrane_sciclops.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.9808034096248246, 0, 0, 0.19499915812207633)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.5716540350804585, 1.0911419407806033, 1.05142)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "platecrane_stacks" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/platecrane_stacks.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.9808034096248246, 0, 0, 0.19499915812207633)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.5716540350804585, 1.0911419407806033, 1.05142)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "platecrane_exchange" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/platecrane_exchange.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.9808034096248246, 0, 0, 0.19499915812207633)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.5716540350804585, 1.0911419407806033, 1.05142)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "sealer" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/sealer.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.8257650631440081, 0.723495590132983, 1.0514205694198622)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "peeler" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/peeler.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.7422271361500286, 0.38046196350904526, 1.051421403884885)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "ot2_00" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/ot2.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.75, -0.25, 1.05142080783844)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "ot2_01" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/ot2.usda@
+    )
+    {
+        token visibility = "inherited"
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (0.75, -1, 1.05142080783844)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "ot2_02" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/ot2.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, -0.7071067811865475)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.75, -1, 1.05142080783844)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "thermocycler_00" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/thermocycler.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, -0.7071067811865475)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.6373815764353591, 0.3649384725658309, 1.0514205694198604)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "thermocycler_01" (
+        instanceable = false
+        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/thermocycler.usda@
+    )
+    {
+        custom quatd xformOp:orient = (0.7071067811865476, 0, 0, -0.7071067811865475)
+        custom double3 xformOp:scale = (1, 1, 1)
+        custom double3 xformOp:translate = (-0.6373815764353591, 0.6442230776775836, 1.0514205694198604)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+
+def Xform "Environment"
+{
+    quatd xformOp:orient = (1, 0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def DistantLight "defaultLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float angle = 1
+        float intensity = 3000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        quatd xformOp:orient = (0.6532814824381883, 0.2705980500730985, 0.27059805007309845, 0.6532814824381882)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

@@ -21,7 +21,7 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
-            string authoring_layer = "./science_table_top.usda"
+            string authoring_layer = "./black.usda"
         }
         dictionary renderSettings = {
             float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
@@ -62,13 +62,13 @@ def Xform "World"
 {
     def Scope "Looks"
     {
-        def Scope "furniture"
+        def Scope "common"
         {
-            def Material "science_table_top"
+            def Material "blue"
             {
-                token outputs:mdl:displacement.connect = </World/Looks/furniture/science_table_top/Shader.outputs:out>
-                token outputs:mdl:surface.connect = </World/Looks/furniture/science_table_top/Shader.outputs:out>
-                token outputs:mdl:volume.connect = </World/Looks/furniture/science_table_top/Shader.outputs:out>
+                token outputs:mdl:displacement.connect = </World/Looks/common/blue/Shader.outputs:out>
+                token outputs:mdl:surface.connect = </World/Looks/common/blue/Shader.outputs:out>
+                token outputs:mdl:volume.connect = </World/Looks/common/blue/Shader.outputs:out>
                 token ui:displayGroup = "Material Graphs"
                 token ui:displayName = "Black"
                 int ui:order = 1024
@@ -204,7 +204,7 @@ def Xform "World"
                         doc = "Controls the position of the detail texture."
                         hidden = false
                     )
-                    color3f inputs:diffuse_color_constant = (0.025316477, 0.025316224, 0.025316224) (
+                    color3f inputs:diffuse_color_constant = (0, 0.023804206, 0.28691983) (
                         customData = {
                             float3 default = (0.2, 0.2, 0.2)
                         }
