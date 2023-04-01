@@ -129,6 +129,9 @@ def main():
         fname_usd[-2] = '2_export'
         fname_usd = Path(*fname_usd).with_suffix('.usdc')
 
+        if fname_blend.stat().st_mtime < fname_usd.stat().st_mtime:
+            continue
+
         if fname_usd.is_file():
             print('Replacing', fname_usd.name)
         else:
