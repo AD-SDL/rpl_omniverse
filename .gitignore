@@ -1,5 +1,6 @@
 # Other (Added manually by Rory Butler)
 .DS_Store
+.vscode/
 .thumbs/
 0_resources/
 1_edit/
