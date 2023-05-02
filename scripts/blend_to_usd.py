@@ -23,21 +23,23 @@ def convert_blend_to_usd(fname_blend, fname_usd):
 
     # Touch up the scene before exporting
     for obj in bpy.context.scene.collection.objects:
-        if not obj.hide_get() and obj is not world:
-            # Change parent
-            if not obj.parent:
-                obj.parent = world
+        if obj is None or obj is world or obj.hide_get() or obj.type not in {'MESH', 'CURVE', 'SURFACE', 'FONT', 'META'}:
+            continue
 
-            # Triangulate with modifier
-            m = obj.modifiers.new('Triangulate', 'TRIANGULATE')
-            m.quad_method = 'BEAUTY'
+        # Change parent
+        if not obj.parent:
+            obj.parent = world
 
-            # Mesh names show up in OV, so make it pretty
-            print('    Renaming', obj.data.name, 'to', obj.name + '_mesh')
-            obj.data.name = obj.name + '_mesh'
+        # Triangulate with modifier
+        m = obj.modifiers.new('Triangulate', 'TRIANGULATE')
+        m.quad_method = 'BEAUTY'
 
-            # Select so we can filter at usd_export
-            obj.select_set(True)
+        # Mesh names show up in OV, so make it pretty
+        print('    Renaming', obj.data.name, 'to', obj.name + '_mesh')
+        obj.data.name = obj.name + '_mesh'
+
+        # Select so we can filter at usd_export
+        obj.select_set(True)
 
     # Export .usd file
     bpy.ops.wm.usd_export(
@@ -129,10 +131,11 @@ def main():
         fname_usd[-2] = '2_export'
         fname_usd = Path(*fname_usd).with_suffix('.usdc')
 
-        if fname_blend.stat().st_mtime < fname_usd.stat().st_mtime:
-            continue
-
         if fname_usd.is_file():
+            if fname_blend.stat().st_mtime < fname_usd.stat().st_mtime:
+                print('Skipping', fname_usd.name)
+                continue
+
             print('Replacing', fname_usd.name)
         else:
             print('Creating', fname_usd.name)

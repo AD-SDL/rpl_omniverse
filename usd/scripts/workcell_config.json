@@ -1,0 +1,22 @@
+{
+    "robot0": {
+        "0": "hidex",
+        "1": "thermocycler",
+        "2": "sealer",
+        "3": "ot2",
+        "4": "peeler",
+        "5": "hidex",
+        "6": "ot2",
+        "7": "ot2"
+    },
+    "robot1": {
+        "0": "ot2",
+        "1": "peeler",
+        "2": "thermocycler",
+        "3": "thermocycler",
+        "4": "ot2",
+        "5": "sealer",
+        "6": "ot2",
+        "7": "ot2"
+    }
+}
