@@ -64,7 +64,7 @@
         @./common/metal.usda@,
         @./common/transparent_plastic.usda@,
         @./common/glass.usda@,
-        @/home/rmbutler/rpl_omniverse/usd/materials/common/blue.usda@,
+        @./common/blue.usda@,
         @./common/gray.usda@,
         @./common/white.usda@,
         @./common/glow_white.usda@,

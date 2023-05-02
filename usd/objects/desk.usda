@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (2.3482180071237075, 1.084143899665856, 1.2171234889560794)
-                double3 target = (-0.00034281798920154927, -0.02599597397048803, 0.2735580314343645)
+                double3 position = (-2.6710101888658584, 1.0595574543736366, 1.608571891588252)
+                double3 target = (-0.0184332384820709, -0.028642141463078863, 0.2741408997670598)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -61,7 +61,7 @@
     startTimeCode = 0
     subLayers = [
         @../materials/furniture.usda@,
-        @file:/home/rmbutler/rpl_omniverse/usd/materials/common.usda@,
+        @../materials/common.usda@,
         @../../cad/objects/table/2_export/desk.usdc@
     ]
     timeCodesPerSecond = 24

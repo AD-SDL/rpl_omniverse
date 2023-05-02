@@ -67,7 +67,7 @@ def Xform "World"
 {
     def "cart" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+        prepend payload = @../objects/cart.usda@
     )
     {
         custom quatd xformOp:orient = (1, 0, 0, 0)
@@ -78,7 +78,7 @@ def Xform "World"
 
     def "cart_01" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+        prepend payload = @../objects/cart.usda@
     )
     {
         custom quatd xformOp:orient = (1, 0, 0, 0)
@@ -89,7 +89,7 @@ def Xform "World"
 
     def "cart_02" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+        prepend payload = @../objects/cart.usda@
     )
     {
         custom quatd xformOp:orient = (1, 0, 0, 0)
@@ -100,7 +100,7 @@ def Xform "World"
 
     def "cart_03" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+        prepend payload = @../objects/cart.usda@
     )
     {
         custom quatd xformOp:orient = (1, 0, 0, 0)
@@ -111,7 +111,7 @@ def Xform "World"
 
     def "cart_04" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+        prepend payload = @../objects/cart.usda@
     )
     {
         custom quatd xformOp:orient = (1, 0, 0, 0)
@@ -122,7 +122,7 @@ def Xform "World"
 
     def "cart_05" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+        prepend payload = @../objects/cart.usda@
     )
     {
         custom quatd xformOp:orient = (1, 0, 0, 0)
@@ -133,7 +133,7 @@ def Xform "World"
 
     def "cart_06" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+        prepend payload = @../objects/cart.usda@
     )
     {
         custom quatd xformOp:orient = (1, 0, 0, 0)
@@ -144,7 +144,7 @@ def Xform "World"
 
     def "cart_07" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart.usda@
+        prepend payload = @../objects/cart.usda@
     )
     {
         custom quatd xformOp:orient = (1, 0, 0, 0)
@@ -155,7 +155,7 @@ def Xform "World"
 
     def "cart_pf400" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/objects/cart_pf400.usda@
+        prepend payload = @../objects/cart_pf400.usda@
     )
     {
         custom quatd xformOp:orient = (1, 0, 0, 0)
@@ -166,7 +166,7 @@ def Xform "World"
 
     def "pf400" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/pf400.usda@
+        prepend payload = @../robots/pf400.usda@
     )
     {
         custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
@@ -177,7 +177,7 @@ def Xform "World"
 
     def "platecrane_sciclops" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/platecrane_sciclops.usda@
+        prepend payload = @../robots/platecrane_sciclops.usda@
     )
     {
         custom quatd xformOp:orient = (0.9808034096248246, 0, 0, 0.19499915812207633)
@@ -188,7 +188,7 @@ def Xform "World"
 
     def "platecrane_stacks" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/platecrane_stacks.usda@
+        prepend payload = @../robots/platecrane_stacks.usda@
     )
     {
         custom quatd xformOp:orient = (0.9808034096248246, 0, 0, 0.19499915812207633)
@@ -199,7 +199,7 @@ def Xform "World"
 
     def "platecrane_exchange" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/platecrane_exchange.usda@
+        prepend payload = @../robots/platecrane_exchange.usda@
     )
     {
         custom quatd xformOp:orient = (0.9808034096248246, 0, 0, 0.19499915812207633)
@@ -210,7 +210,7 @@ def Xform "World"
 
     def "sealer" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/sealer.usda@
+        prepend payload = @../robots/sealer.usda@
     )
     {
         custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
@@ -221,7 +221,7 @@ def Xform "World"
 
     def "peeler" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/peeler.usda@
+        prepend payload = @../robots/peeler.usda@
     )
     {
         custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
@@ -232,7 +232,7 @@ def Xform "World"
 
     def "ot2_00" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/ot2.usda@
+        prepend payload = @../robots/ot2.usda@
     )
     {
         custom quatd xformOp:orient = (0.7071067811865476, 0, 0, 0.7071067811865475)
@@ -243,7 +243,7 @@ def Xform "World"
 
     def "ot2_01" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/ot2.usda@
+        prepend payload = @../robots/ot2.usda@
     )
     {
         token visibility = "inherited"
@@ -255,7 +255,7 @@ def Xform "World"
 
     def "ot2_02" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/ot2.usda@
+        prepend payload = @../robots/ot2.usda@
     )
     {
         custom quatd xformOp:orient = (0.7071067811865476, 0, 0, -0.7071067811865475)
@@ -266,7 +266,7 @@ def Xform "World"
 
     def "thermocycler_00" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/thermocycler.usda@
+        prepend payload = @../robots/thermocycler.usda@
     )
     {
         custom quatd xformOp:orient = (0.7071067811865476, 0, 0, -0.7071067811865475)
@@ -277,7 +277,7 @@ def Xform "World"
 
     def "thermocycler_01" (
         instanceable = false
-        prepend payload = @file:/home/rmbutler/rpl_omniverse/usd/robots/thermocycler.usda@
+        prepend payload = @../robots/thermocycler.usda@
     )
     {
         custom quatd xformOp:orient = (0.7071067811865476, 0, 0, -0.7071067811865475)

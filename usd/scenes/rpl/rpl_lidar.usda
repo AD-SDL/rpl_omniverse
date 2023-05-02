@@ -1,0 +1,492 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (0.6686259673948513, -1.843495957710695, 2.692166388020011)
+                double3 target = (6.849547713357029, -7.325677052841815, 1.5666153542207608)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 5)
+                double radius = 5
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./rpl_lidar.usda"
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            bool "rtx:directLighting:sampledLighting:enabled" = 1
+            int "rtx:externalFrameCounter" = 360861
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            bool "rtx:hydra:faceCulling:enabled" = 1
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 1
+    startTimeCode = 0
+    subLayers = [
+        @./rpl.usda@
+    ]
+    timeCodesPerSecond = 24
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def Lidar "Lidar"
+    {
+        bool drawLines = 1
+        bool drawPoints = 0
+        bool enabled = 1
+        bool enableSemantics = 0
+        bool highLod = 0
+        float horizontalFov = 360
+        float horizontalResolution = 0.4
+        float maxRange = 25
+        float minRange = 0.1
+        float rotationRate = 2
+        float verticalFov = 30
+        float verticalResolution = 4
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (6.933040232156621, -8.142248700452898, 0.2)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        float yawOffset = 0
+    }
+
+    def OmniGraph "ActionGraph"
+    {
+        token evaluationMode = "Automatic"
+        token evaluator:type = "execution"
+        token fabricCacheBacking = "Shared"
+        int2 fileFormatVersion = (1, 5)
+        token pipelineStage = "pipelineStageSimulation"
+
+        def OmniGraphNode "on_playback_tick" (
+            prepend apiSchemas = ["NodeGraphNodeAPI"]
+        )
+        {
+            token node:type = "omni.graph.action.OnPlaybackTick"
+            int node:typeVersion = 1
+            custom double outputs:deltaSeconds
+            custom double outputs:frame
+            custom uint outputs:tick (
+                customData = {
+                    bool isExecution = 1
+                }
+            )
+            custom double outputs:time
+            uniform token ui:nodegraph:node:expansionState = "open"
+            uniform float2 ui:nodegraph:node:pos = (71, 174)
+        }
+
+        def OmniGraphNode "ros2_context" (
+            prepend apiSchemas = ["NodeGraphNodeAPI"]
+        )
+        {
+            custom uchar inputs:domain_id = 0
+            custom bool inputs:useDomainIDEnvVar = 0
+            token node:type = "omni.isaac.ros2_bridge.ROS2Context"
+            int node:typeVersion = 2
+            custom uint64 outputs:context = 0
+            uniform token ui:nodegraph:node:expansionState = "open"
+            uniform float2 ui:nodegraph:node:pos = (379, 381)
+        }
+
+        def OmniGraphNode "isaac_read_simulation_time" (
+            prepend apiSchemas = ["NodeGraphNodeAPI"]
+        )
+        {
+            custom bool inputs:resetOnStop = 0
+            custom int64 inputs:swhFrameNumber = 0
+            token node:type = "omni.isaac.core_nodes.IsaacReadSimulationTime"
+            int node:typeVersion = 1
+            custom double outputs:simulationTime
+            uniform token ui:nodegraph:node:expansionState = "open"
+            uniform float2 ui:nodegraph:node:pos = (357, 514)
+        }
+
+        def OmniGraphNode "ros2_publish_laser_scan" (
+            prepend apiSchemas = ["NodeGraphNodeAPI"]
+        )
+        {
+            custom float2 inputs:azimuthRange = (0, 0)
+            prepend float2 inputs:azimuthRange.connect = </World/ActionGraph/isaac_read_lidar_beams_node.outputs:azimuthRange>
+            custom uint64 inputs:context = 0
+            prepend uint64 inputs:context.connect = </World/ActionGraph/ros2_context.outputs:context>
+            custom float2 inputs:depthRange = (0, 0)
+            prepend float2 inputs:depthRange.connect = </World/ActionGraph/isaac_read_lidar_beams_node.outputs:depthRange>
+            custom uint inputs:execIn
+            prepend uint inputs:execIn.connect = </World/ActionGraph/isaac_read_lidar_beams_node.outputs:execOut>
+            custom string inputs:frameId = "sim_lidar"
+            custom float inputs:horizontalFov = 0
+            prepend float inputs:horizontalFov.connect = </World/ActionGraph/isaac_read_lidar_beams_node.outputs:horizontalFov>
+            custom float inputs:horizontalResolution = 0
+            prepend float inputs:horizontalResolution.connect = </World/ActionGraph/isaac_read_lidar_beams_node.outputs:horizontalResolution>
+            custom uchar[] inputs:intensitiesData = []
+            prepend uchar[] inputs:intensitiesData.connect = </World/ActionGraph/isaac_read_lidar_beams_node.outputs:intensitiesData>
+            custom float[] inputs:linearDepthData = []
+            prepend float[] inputs:linearDepthData.connect = </World/ActionGraph/isaac_read_lidar_beams_node.outputs:linearDepthData>
+            custom string inputs:nodeNamespace = ""
+            custom int inputs:numCols = 0
+            prepend int inputs:numCols.connect = </World/ActionGraph/isaac_read_lidar_beams_node.outputs:numCols>
+            custom int inputs:numRows = 0
+            prepend int inputs:numRows.connect = </World/ActionGraph/isaac_read_lidar_beams_node.outputs:numRows>
+            custom uint64 inputs:queueSize = 10
+            custom float inputs:rotationRate = 0
+            prepend float inputs:rotationRate.connect = </World/ActionGraph/isaac_read_lidar_beams_node.outputs:rotationRate>
+            custom double inputs:timeStamp = 0
+            prepend double inputs:timeStamp.connect = </World/ActionGraph/isaac_read_simulation_time.outputs:simulationTime>
+            custom string inputs:topicName = "/laser_scan"
+            token node:type = "omni.isaac.ros2_bridge.ROS2PublishLaserScan"
+            int node:typeVersion = 1
+            uniform token ui:nodegraph:node:expansionState = "open"
+            uniform float2 ui:nodegraph:node:pos = (778, 104)
+        }
+
+        def OmniGraphNode "isaac_read_lidar_beams_node" (
+            prepend apiSchemas = ["NodeGraphNodeAPI"]
+        )
+        {
+            custom uint inputs:execIn
+            prepend uint inputs:execIn.connect = </World/ActionGraph/on_playback_tick.outputs:tick>
+            custom rel inputs:lidarPrim
+            prepend rel inputs:lidarPrim = </World/Lidar>
+            token node:type = "omni.isaac.range_sensor.IsaacReadLidarBeams"
+            int node:typeVersion = 1
+            custom float2 outputs:azimuthRange = (0, 0)
+            custom float2 outputs:depthRange = (0, 0)
+            custom uint outputs:execOut (
+                customData = {
+                    bool isExecution = 1
+                }
+            )
+            custom float outputs:horizontalFov = 0
+            custom float outputs:horizontalResolution = 0
+            custom uchar[] outputs:intensitiesData = []
+            custom float[] outputs:linearDepthData = []
+            custom int outputs:numCols = 0
+            custom int outputs:numRows = 0
+            custom float outputs:rotationRate = 0
+            custom float outputs:verticalFov = 0
+            custom float outputs:verticalResolution = 0
+            custom float2 outputs:zenithRange = (0, 0)
+            uniform token ui:nodegraph:node:expansionState = "open"
+            uniform float2 ui:nodegraph:node:pos = (359, 10)
+        }
+    }
+
+    over "cell_base"
+    {
+        over "peeler"
+        {
+            over "frame"
+            {
+            }
+
+            over "plate"
+            {
+            }
+        }
+
+        over "platecrane_sciclops"
+        {
+            over "base"
+            {
+            }
+
+            over "tower"
+            {
+            }
+
+            over "arm_link_1"
+            {
+            }
+
+            over "arm_link_2"
+            {
+            }
+
+            over "gripper"
+            {
+            }
+
+            over "gripper_left"
+            {
+            }
+
+            over "gripper_right"
+            {
+            }
+        }
+
+        over "sealer"
+        {
+            over "frame"
+            {
+            }
+
+            over "plate"
+            {
+            }
+
+            over "door"
+            {
+            }
+        }
+
+        over "pf400"
+        {
+            over "rail_base"
+            {
+            }
+
+            over "rail"
+            {
+            }
+
+            over "column"
+            {
+            }
+
+            over "carriage"
+            {
+            }
+
+            over "link_inner"
+            {
+            }
+
+            over "link_outer"
+            {
+            }
+
+            over "hand"
+            {
+            }
+
+            over "finger_right"
+            {
+            }
+
+            over "finger_left"
+            {
+            }
+        }
+    }
+
+    over "hidex"
+    {
+        over "body"
+        {
+        }
+
+        over "plate"
+        {
+        }
+
+        over "door"
+        {
+        }
+    }
+
+    over "mir250_00"
+    {
+        over "mir250"
+        {
+            over "base"
+            {
+            }
+
+            over "wheel_front_right"
+            {
+            }
+
+            over "wheel_back_right"
+            {
+            }
+
+            over "wheel_front_left"
+            {
+            }
+
+            over "wheel_back_left"
+            {
+            }
+
+            over "disk_front_right"
+            {
+            }
+
+            over "disk_back_right"
+            {
+            }
+
+            over "disk_front_left"
+            {
+            }
+
+            over "disk_back_left"
+            {
+            }
+        }
+
+        over "ur5e"
+        {
+            over "base_link"
+            {
+            }
+
+            over "base"
+            {
+            }
+
+            over "base_link_inertia"
+            {
+                over "shoulder_pan_joint"
+                {
+                    float state:angular:physics:position = -0.000009267166
+                    float state:angular:physics:velocity = 0.0056085135
+                }
+            }
+
+            over "shoulder_link"
+            {
+                over "shoulder_lift_joint"
+                {
+                    float state:angular:physics:position = 0.38290802
+                    float state:angular:physics:velocity = -3.2289915
+                }
+            }
+
+            over "upper_arm_link"
+            {
+                over "elbow_joint"
+                {
+                    float state:angular:physics:position = 0.07865289
+                    float state:angular:physics:velocity = -0.17238894
+                }
+            }
+
+            over "forearm_link"
+            {
+                over "wrist_1_joint"
+                {
+                    float state:angular:physics:position = -0.009255281
+                    float state:angular:physics:velocity = 2.5598938
+                }
+            }
+
+            over "wrist_1_link"
+            {
+                over "wrist_2_joint"
+                {
+                    float state:angular:physics:position = 0.00006111185
+                    float state:angular:physics:velocity = 0.0005365136
+                }
+            }
+
+            over "wrist_2_link"
+            {
+                over "wrist_3_joint"
+                {
+                    float state:angular:physics:position = -0.0005276447
+                    float state:angular:physics:velocity = 0.15108523
+                }
+            }
+
+            over "wrist_3_link"
+            {
+            }
+
+            over "flange"
+            {
+            }
+
+            over "tool0"
+            {
+            }
+        }
+    }
+
+    over "mir250_01"
+    {
+        over "mir250"
+        {
+            over "base"
+            {
+            }
+
+            over "wheel_front_right"
+            {
+            }
+
+            over "wheel_back_right"
+            {
+            }
+
+            over "wheel_front_left"
+            {
+            }
+
+            over "wheel_back_left"
+            {
+            }
+
+            over "disk_front_right"
+            {
+            }
+
+            over "disk_back_right"
+            {
+            }
+
+            over "disk_front_left"
+            {
+            }
+
+            over "disk_back_left"
+            {
+            }
+        }
+    }
+}
+

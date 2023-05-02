@@ -1,0 +1,599 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (7.55116711404255, 6.259222854563748, 2.563199080186205)
+                double3 target = (7.251303903748048, -6.486571670947019, 2.132773556394597)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 5)
+                double radius = 5
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./rpl.usda"
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            bool "rtx:directLighting:sampledLighting:enabled" = 1
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            bool "rtx:hydra:faceCulling:enabled" = 1
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 100
+    metersPerUnit = 1
+    startTimeCode = 0
+    subLayers = [
+        @../../materials/rpl.usda@,
+        @../../materials/common.usda@,
+        @../../../cad/rooms/rpl/2_export/rpl.usdc@
+    ]
+    timeCodesPerSecond = 24
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def Xform "LightContainer"
+    {
+        token ui:displayGroup = "Material Graphs"
+        token ui:displayName = "LightContainer"
+        int ui:order = 1024
+        token visibility = "inherited"
+        float3 xformOp:rotateXYZ = (90, -0, -90)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+
+        def RectLight "RectLight" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (1.9799999999999995, 5.311, -1.7600000000000005)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_01" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (6.35, 5.311, -1.7600000000000013)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_02" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (1.9799999999999993, 5.311, -5.3)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_03" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (6.349999999999999, 5.311, -5.300000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_04" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (1.9799999999999984, 5.311, -8.84)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_05" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (6.349999999999998, 5.311, -8.840000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_06" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (10.719999999999999, 5.311, -8.840000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_07" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (1.9799999999999978, 5.311, -12.38)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_08" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (6.349999999999997, 5.311, -12.380000000000003)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_09" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (10.719999999999997, 5.311, -12.380000000000003)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_10" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (13.489999999999998, 5.311, -11.200000000000003)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def RectLight "RectLight_11" (
+            apiSchemas = ["ShapingAPI"]
+        )
+        {
+            color3f color = (1, 1, 1)
+            float colorTemperature = 6000
+            bool enableColorTemperature = 1
+            float exposure = 0
+            float height = 0.2
+            float intensity = 80000
+            bool light:enableCaustics = 0
+            bool normalize = 0
+            float shaping:cone:angle = 180
+            float shaping:cone:softness = 1.5
+            float shaping:focus = 0.05
+            color3f shaping:focusTint
+            asset shaping:ies:file
+            token visibility = "inherited"
+            bool visibleInPrimaryRay = 1
+            float width = 1.25
+            quatd xformOp:orient = (-0.7071067811865475, 0.7071067811865476, 1.2266347333466978e-17, -1.349298206681369e-16)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (13.489999999999998, 5.311, -7.660000000000003)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    over "BaseWalls"
+    {
+        over "BaseWalls_mesh" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxTriangleMeshCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCookedDataAPI:triangleMesh"]
+        )
+        {
+            rel material:binding = </World/Looks/rpl/rpl_wall_paint_gray> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            uniform token physics:approximation = "none"
+            bool physics:collisionEnabled = 1
+            uchar[] physxCookedData:triangleMesh:buffer = [7, 12, 198, 229, 156, 150, 133, 13, 74, 171, 195, 186, 102, 166, 135, 165, 252, 78, 88, 83, 1, 77, 69, 83, 72, 16, 0, 0, 0, 1, 0, 0, 0, 182, 1, 0, 0, 21, 0, 0, 0, 19, 0, 0, 0, 11, 215, 243, 64, 71, 210, 178, 180, 1, 0, 16, 65, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 16, 65, 25, 147, 27, 53, 12, 36, 84, 65, 1, 0, 16, 65, 91, 134, 108, 65, 50, 85, 96, 65, 1, 0, 16, 65, 91, 134, 108, 65, 11, 36, 84, 65, 1, 0, 16, 65, 150, 246, 110, 65, 11, 36, 84, 65, 1, 0, 16, 65, 149, 246, 110, 65, 13, 113, 180, 64, 1, 0, 16, 65, 53, 239, 32, 65, 13, 113, 180, 64, 1, 0, 16, 65, 53, 239, 32, 65, 33, 22, 234, 62, 1, 0, 16, 65, 11, 215, 243, 64, 37, 22, 234, 62, 1, 0, 16, 65, 11, 215, 243, 64, 71, 210, 178, 180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 147, 27, 53, 12, 36, 84, 65, 0, 0, 0, 0, 91, 134, 108, 65, 50, 85, 96, 65, 0, 0, 0, 0, 91, 134, 108, 65, 11, 36, 84, 65, 0, 0, 0, 0, 150, 246, 110, 65, 11, 36, 84, 65, 0, 0, 0, 0, 149, 246, 110, 65, 13, 113, 180, 64, 0, 0, 0, 0, 53, 239, 32, 65, 13, 113, 180, 64, 0, 0, 0, 0, 53, 239, 32, 65, 33, 22, 234, 62, 0, 0, 0, 0, 11, 215, 243, 64, 37, 22, 234, 62, 0, 0, 0, 0, 91, 134, 108, 65, 50, 85, 96, 65, 187, 9, 75, 64, 14, 5, 4, 15, 6, 5, 20, 14, 4, 14, 15, 5, 15, 16, 6, 4, 3, 20, 20, 13, 14, 11, 2, 1, 11, 12, 2, 17, 8, 7, 18, 9, 8, 16, 17, 7, 17, 18, 8, 18, 19, 9, 16, 7, 6, 10, 1, 0, 19, 10, 0, 10, 11, 1, 19, 0, 9, 18, 0, 0, 0, 0, 1, 3, 9, 10, 12, 13, 8, 18, 4, 5, 11, 14, 15, 2, 7, 16, 17, 6, 3, 0, 0, 0, 255, 255, 255, 255, 2, 0, 0, 0, 4, 0, 0, 0, 255, 255, 255, 255, 3, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 14, 0, 0, 0, 1, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 2, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 2, 0, 0, 0, 8, 0, 0, 0, 255, 255, 255, 255, 17, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 7, 0, 0, 0, 12, 0, 0, 0, 255, 255, 255, 255, 11, 0, 0, 0, 13, 0, 0, 0, 255, 255, 255, 255, 12, 0, 0, 0, 255, 255, 255, 255, 9, 0, 0, 0, 14, 0, 0, 0, 255, 255, 255, 255, 10, 0, 0, 0, 9, 0, 0, 0, 255, 255, 255, 255, 18, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 255, 255, 255, 255, 4, 0, 0, 0, 17, 0, 0, 0, 255, 255, 255, 255, 16, 0, 0, 0, 255, 255, 255, 255, 15, 0, 0, 0, 18, 0, 0, 0, 255, 255, 255, 255, 7, 0, 0, 0, 15, 0, 0, 0, 16, 0, 0, 0, 255, 255, 255, 255, 13, 0, 0, 0, 66, 86, 52, 32, 3, 0, 0, 0, 150, 246, 238, 64, 50, 85, 224, 64, 1, 0, 144, 64, 29, 0, 51, 65, 4, 0, 0, 0, 98, 135, 236, 57, 210, 112, 52, 57, 163, 129, 209, 49, 69, 249, 238, 57, 197, 87, 224, 57, 242, 1, 144, 57, 1, 0, 0, 0, 4, 0, 0, 0, 255, 127, 255, 127, 0, 0, 1, 0, 249, 65, 255, 127, 0, 0, 79, 65, 255, 127, 255, 127, 254, 255, 11, 121, 95, 10, 123, 51, 254, 255, 45, 4, 1, 128, 255, 127, 1, 128, 255, 127, 1, 128, 255, 127, 1, 128, 255, 127, 15, 0, 0, 0, 229, 0, 0, 0, 45, 1, 0, 0, 233, 1, 0, 0, 150, 246, 110, 54, 0, 0, 0, 0, 71, 210, 178, 180, 0, 0, 0, 0, 150, 246, 110, 65, 50, 85, 96, 65, 1, 0, 16, 65, 19, 0, 0, 0, 48, 16, 16, 8, 8, 24, 24, 16, 24, 48, 16, 24, 8, 24, 16, 16, 8, 8, 48, 11, 2, 1, 11, 12, 2, 10, 1, 0, 10, 11, 1, 19, 10, 0, 19, 0, 9, 18, 9, 8, 18, 19, 9, 17, 8, 7, 17, 18, 8, 16, 17, 7, 16, 7, 6, 20, 14, 4, 4, 3, 20, 20, 13, 14, 14, 5, 4, 14, 15, 5, 15, 6, 5, 15, 16, 6, 1, 0, 0, 128, 255, 255, 255, 255, 3, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 128, 0, 0, 0, 0, 3, 0, 0, 0, 255, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 128, 2, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 2, 0, 0, 0, 5, 0, 0, 128, 0, 0, 0, 0, 4, 0, 0, 128, 255, 255, 255, 255, 7, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 128, 255, 255, 255, 255, 9, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 5, 0, 0, 0, 6, 0, 0, 128, 0, 0, 0, 0, 9, 0, 0, 128, 255, 255, 255, 255, 10, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 6, 0, 0, 0, 8, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 8, 0, 0, 0, 11, 0, 0, 128, 0, 0, 0, 0, 10, 0, 0, 128, 255, 255, 255, 255, 18, 0, 0, 128, 0, 0, 0, 0, 14, 0, 0, 128, 15, 0, 0, 0, 13, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 12, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 12, 0, 0, 128, 0, 0, 0, 0, 16, 0, 0, 128, 255, 255, 255, 255, 12, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 17, 0, 0, 0, 15, 0, 0, 128, 0, 0, 0, 0, 18, 0, 0, 128, 255, 255, 255, 255, 16, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 11, 0, 0, 128, 17, 0, 0, 128, 0, 0, 0, 0, 7, 0, 0, 0, 8, 0, 0, 0, 15, 0, 0, 0, 17, 0, 0, 0, 16, 0, 0, 0, 18, 0, 0, 0, 10, 0, 0, 0, 13, 0, 0, 0, 9, 0, 0, 0, 12, 0, 0, 0, 11, 0, 0, 0, 14, 0, 0, 0, 2, 0, 0, 0, 5, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0, 15, 0, 0, 0, 17, 0, 0, 0, 12, 0, 0, 0, 16, 0, 0, 0, 18, 0, 0, 0, 13, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 8, 0, 0, 0, 6, 0, 0, 0, 10, 0, 0, 0, 9, 0, 0, 0, 7, 0, 0, 0, 11, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 66, 86, 51, 50, 2, 0, 0, 0, 150, 246, 238, 64, 50, 85, 224, 64, 1, 0, 144, 64, 29, 0, 51, 65, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 87, 127, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 71, 210, 178, 180, 0, 0, 0, 0, 0, 0, 0, 0, 150, 246, 110, 65, 50, 85, 96, 65, 1, 0, 16, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 6, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 12, 0, 0, 0, 15, 0, 0, 0, 18, 0, 0, 0, 21, 0, 0, 0, 24, 0, 0, 0, 27, 0, 0, 0, 30, 0, 0, 0, 33, 0, 0, 0, 34, 0, 0, 0, 35, 0, 0, 0, 39, 0, 0, 0, 42, 0, 0, 0, 45, 0, 0, 0, 48, 0, 0, 0, 51, 0, 0, 0, 54, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 13, 0, 0, 0, 12, 0, 0, 0, 13, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0, 16, 0, 0, 0, 17, 0, 0, 0, 11, 0, 0, 0, 17, 0, 0, 0, 18, 0, 0, 0, 8, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 6, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 5, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 14, 0, 0, 0, 12, 0, 0, 0, 14, 0, 0, 0, 15, 0, 0, 0, 16, 0, 0, 0, 16, 0, 0, 0, 17, 0, 0, 0, 18, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 18, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 10, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 9, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 7, 0, 0, 0, 12, 0, 0, 0, 13, 0, 0, 0, 14, 0, 0, 0]
+            bool singleSided = 1
+        }
+    }
+
+    over "Roof"
+    {
+        over "Roof_mesh"
+        {
+            rel material:binding = </World/Looks/rpl/rpl_ceiling> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            bool singleSided = 1
+        }
+    }
+
+    over "ConcreteLow"
+    {
+        over "ConcreteLow_mesh" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxTriangleMeshCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCookedDataAPI:triangleMesh"]
+        )
+        {
+            rel material:binding = </World/Looks/rpl/rpl_wall_concrete_low> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            uniform token physics:approximation = "none"
+            bool physics:collisionEnabled = 1
+            uchar[] physxCookedData:triangleMesh:buffer = [7, 144, 43, 142, 17, 139, 220, 135, 254, 76, 50, 175, 49, 20, 179, 6, 22, 78, 88, 83, 1, 77, 69, 83, 72, 16, 0, 0, 0, 1, 0, 0, 0, 182, 1, 0, 0, 8, 0, 0, 0, 4, 0, 0, 0, 232, 14, 28, 62, 51, 85, 96, 65, 0, 0, 0, 0, 52, 85, 224, 64, 51, 85, 96, 65, 0, 0, 0, 0, 248, 151, 253, 64, 51, 85, 96, 65, 0, 0, 0, 0, 91, 134, 108, 65, 50, 85, 96, 65, 0, 0, 0, 0, 91, 134, 108, 65, 50, 85, 96, 65, 187, 9, 75, 64, 52, 85, 224, 64, 51, 85, 96, 65, 187, 9, 75, 64, 248, 151, 253, 64, 51, 85, 96, 65, 187, 9, 75, 64, 232, 14, 28, 62, 51, 85, 96, 65, 187, 9, 75, 64, 6, 3, 4, 6, 2, 3, 7, 1, 5, 7, 0, 1, 3, 0, 0, 0, 0, 2, 1, 3, 1, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 3, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 2, 0, 0, 0, 66, 86, 52, 32, 3, 0, 0, 0, 151, 246, 238, 64, 50, 85, 96, 65, 187, 9, 203, 63, 205, 134, 239, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 91, 134, 108, 54, 232, 14, 28, 62, 50, 85, 96, 65, 0, 0, 0, 0, 91, 134, 108, 65, 51, 85, 96, 65, 187, 9, 75, 64, 4, 0, 0, 0, 48, 24, 48, 24, 6, 3, 4, 6, 2, 3, 7, 1, 5, 7, 0, 1, 1, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 128, 0, 0, 0, 0, 3, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 2, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 66, 86, 51, 50, 2, 0, 0, 0, 151, 246, 238, 64, 50, 85, 96, 65, 187, 9, 203, 63, 205, 134, 239, 64, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 105, 127, 0, 0, 9, 0, 0, 0, 232, 14, 28, 62, 50, 85, 96, 65, 0, 0, 0, 0, 0, 0, 0, 0, 91, 134, 108, 65, 51, 85, 96, 65, 187, 9, 75, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 8, 0, 0, 0, 10, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0]
+            bool singleSided = 1
+        }
+    }
+
+    over "ConcreteHigh"
+    {
+        over "ConcreteHigh_mesh" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxTriangleMeshCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCookedDataAPI:triangleMesh"]
+        )
+        {
+            rel material:binding = </World/Looks/rpl/rpl_wall_concrete_high> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            uniform token physics:approximation = "none"
+            bool physics:collisionEnabled = 1
+            uchar[] physxCookedData:triangleMesh:buffer = [7, 24, 207, 140, 214, 94, 239, 25, 18, 228, 191, 94, 177, 77, 142, 253, 72, 78, 88, 83, 1, 77, 69, 83, 72, 16, 0, 0, 0, 1, 0, 0, 0, 182, 1, 0, 0, 8, 0, 0, 0, 4, 0, 0, 0, 232, 14, 28, 62, 51, 85, 96, 65, 1, 0, 16, 65, 52, 85, 224, 64, 51, 85, 96, 65, 1, 0, 16, 65, 248, 151, 253, 64, 51, 85, 96, 65, 1, 0, 16, 65, 91, 134, 108, 65, 50, 85, 96, 65, 1, 0, 16, 65, 91, 134, 108, 65, 50, 85, 96, 65, 187, 9, 75, 64, 52, 85, 224, 64, 51, 85, 96, 65, 187, 9, 75, 64, 248, 151, 253, 64, 51, 85, 96, 65, 187, 9, 75, 64, 232, 14, 28, 62, 51, 85, 96, 65, 187, 9, 75, 64, 6, 3, 2, 6, 4, 3, 7, 1, 0, 7, 5, 1, 3, 0, 0, 0, 0, 2, 1, 3, 1, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 3, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 2, 0, 0, 0, 66, 86, 52, 32, 3, 0, 0, 0, 151, 246, 238, 64, 50, 85, 96, 65, 112, 194, 194, 64, 3, 249, 251, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 91, 134, 108, 54, 232, 14, 28, 62, 50, 85, 96, 65, 187, 9, 75, 64, 91, 134, 108, 65, 51, 85, 96, 65, 1, 0, 16, 65, 4, 0, 0, 0, 48, 24, 48, 24, 6, 3, 2, 6, 4, 3, 7, 1, 0, 7, 5, 1, 1, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 128, 0, 0, 0, 0, 3, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 2, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 66, 86, 51, 50, 2, 0, 0, 0, 151, 246, 238, 64, 50, 85, 96, 65, 112, 194, 194, 64, 3, 249, 251, 64, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 87, 127, 0, 0, 9, 0, 0, 0, 232, 14, 28, 62, 50, 85, 96, 65, 187, 9, 75, 64, 0, 0, 0, 0, 91, 134, 108, 65, 51, 85, 96, 65, 1, 0, 16, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 8, 0, 0, 0, 10, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0]
+            bool singleSided = 1
+        }
+    }
+
+    over "OrangePipes"
+    {
+        over "OrangePipes_mesh"
+        {
+            rel material:binding = </World/Looks/rpl/rpl_pipe_orange> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            bool singleSided = 1
+        }
+    }
+
+    over "Floor"
+    {
+        over "Floor_mesh" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxTriangleMeshCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCookedDataAPI:triangleMesh"]
+        )
+        {
+            rel material:binding = </World/Looks/rpl/rpl_floor> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            uniform token physics:approximation = "none"
+            bool physics:collisionEnabled = 1
+            uchar[] physxCookedData:triangleMesh:buffer = [7, 200, 195, 50, 26, 216, 150, 47, 216, 109, 251, 205, 157, 115, 199, 140, 51, 78, 88, 83, 1, 77, 69, 83, 72, 16, 0, 0, 0, 1, 0, 0, 0, 182, 1, 0, 0, 16, 0, 0, 0, 14, 0, 0, 0, 11, 215, 243, 64, 71, 210, 178, 180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 147, 27, 53, 12, 36, 84, 65, 0, 0, 0, 0, 230, 14, 28, 62, 12, 36, 84, 65, 0, 0, 0, 0, 232, 14, 28, 62, 51, 85, 96, 65, 0, 0, 0, 0, 52, 85, 224, 64, 51, 85, 96, 65, 0, 0, 0, 0, 52, 85, 224, 64, 12, 36, 84, 65, 0, 0, 0, 0, 248, 151, 253, 64, 12, 36, 84, 65, 0, 0, 0, 0, 248, 151, 253, 64, 51, 85, 96, 65, 0, 0, 0, 0, 91, 134, 108, 65, 50, 85, 96, 65, 0, 0, 0, 0, 91, 134, 108, 65, 11, 36, 84, 65, 0, 0, 0, 0, 150, 246, 110, 65, 11, 36, 84, 65, 0, 0, 0, 0, 149, 246, 110, 65, 13, 113, 180, 64, 0, 0, 0, 0, 53, 239, 32, 65, 13, 113, 180, 64, 0, 0, 0, 0, 53, 239, 32, 65, 33, 22, 234, 62, 0, 0, 0, 0, 11, 215, 243, 64, 37, 22, 234, 62, 0, 0, 0, 0, 7, 6, 13, 5, 4, 3, 13, 12, 10, 12, 11, 10, 10, 9, 8, 5, 3, 6, 6, 3, 13, 13, 10, 7, 10, 8, 7, 3, 2, 1, 3, 1, 13, 1, 0, 15, 15, 14, 13, 1, 15, 13, 13, 0, 0, 0, 0, 1, 5, 6, 7, 9, 11, 12, 13, 2, 10, 3, 4, 8, 255, 255, 255, 255, 6, 0, 0, 0, 7, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 5, 0, 0, 0, 255, 255, 255, 255, 3, 0, 0, 0, 7, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 2, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 8, 0, 0, 0, 1, 0, 0, 0, 6, 0, 0, 0, 255, 255, 255, 255, 5, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 255, 255, 255, 255, 7, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 10, 0, 0, 0, 9, 0, 0, 0, 13, 0, 0, 0, 6, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 13, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 13, 0, 0, 0, 11, 0, 0, 0, 12, 0, 0, 0, 10, 0, 0, 0, 66, 86, 52, 32, 3, 0, 0, 0, 150, 246, 238, 64, 51, 85, 224, 64, 0, 0, 0, 0, 172, 225, 35, 65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 150, 246, 110, 54, 0, 0, 0, 0, 71, 210, 178, 180, 0, 0, 0, 0, 150, 246, 110, 65, 51, 85, 96, 65, 0, 0, 0, 0, 14, 0, 0, 0, 8, 24, 8, 24, 24, 32, 0, 0, 16, 24, 0, 24, 24, 0, 3, 2, 1, 5, 4, 3, 5, 3, 6, 1, 0, 15, 3, 1, 13, 1, 15, 13, 6, 3, 13, 7, 6, 13, 15, 14, 13, 10, 9, 8, 13, 10, 7, 10, 8, 7, 13, 12, 10, 12, 11, 10, 255, 255, 255, 255, 255, 255, 255, 255, 4, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 2, 0, 0, 128, 0, 0, 0, 0, 1, 0, 0, 128, 6, 0, 0, 128, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 5, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 128, 5, 0, 0, 128, 6, 0, 0, 128, 0, 0, 0, 0, 3, 0, 0, 128, 8, 0, 0, 128, 4, 0, 0, 128, 0, 0, 0, 0, 2, 0, 0, 128, 4, 0, 0, 128, 7, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 6, 0, 0, 128, 10, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 5, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 11, 0, 0, 128, 0, 0, 0, 0, 12, 0, 0, 128, 11, 0, 0, 128, 7, 0, 0, 128, 0, 0, 0, 0, 9, 0, 0, 128, 255, 255, 255, 255, 10, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 13, 0, 0, 128, 10, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 12, 0, 0, 128, 0, 0, 0, 0, 9, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 11, 0, 0, 0, 10, 0, 0, 0, 13, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 4, 0, 0, 0, 7, 0, 0, 0, 8, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 7, 0, 0, 0, 1, 0, 0, 0, 12, 0, 0, 0, 13, 0, 0, 0, 9, 0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 8, 0, 0, 0, 5, 0, 0, 0, 66, 86, 51, 50, 2, 0, 0, 0, 150, 246, 238, 64, 51, 85, 224, 64, 0, 0, 0, 0, 172, 225, 35, 65, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 105, 127, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 71, 210, 178, 180, 0, 0, 0, 0, 0, 0, 0, 0, 150, 246, 110, 65, 51, 85, 96, 65, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 6, 0, 0, 0, 11, 0, 0, 0, 12, 0, 0, 0, 14, 0, 0, 0, 17, 0, 0, 0, 20, 0, 0, 0, 22, 0, 0, 0, 23, 0, 0, 0, 28, 0, 0, 0, 29, 0, 0, 0, 31, 0, 0, 0, 38, 0, 0, 0, 39, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0, 6, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 9, 0, 0, 0, 11, 0, 0, 0, 9, 0, 0, 0, 9, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 12, 0, 0, 0, 13, 0, 0, 0, 13, 0, 0, 0, 12, 0, 0, 0, 13, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 8, 0, 0, 0, 10, 0, 0, 0, 12, 0, 0, 0, 8, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 8, 0, 0, 0]
+            bool singleSided = 1
+        }
+    }
+
+    over "ElectricalPipes"
+    {
+        over "ElectricalPipes_mesh" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxTriangleMeshCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCookedDataAPI:triangleMesh"]
+        )
+        {
+            rel material:binding = </World/Looks/rpl/rpl_electrical> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            uniform token physics:approximation = "none"
+            bool physics:collisionEnabled = 1
+            uchar[] physxCookedData:triangleMesh:buffer = [7, 0, 99, 37, 158, 177, 206, 115, 130, 198, 100, 31, 188, 6, 12, 184, 98, 78, 88, 83, 1, 77, 69, 83, 72, 16, 0, 0, 0, 1, 0, 0, 0, 182, 1, 0, 0, 32, 0, 0, 0, 38, 0, 0, 0, 139, 40, 31, 65, 29, 222, 178, 64, 111, 25, 145, 62, 139, 40, 31, 65, 29, 222, 178, 64, 203, 168, 211, 62, 53, 239, 32, 65, 29, 222, 178, 64, 111, 25, 145, 62, 53, 239, 32, 65, 29, 222, 178, 64, 203, 168, 211, 62, 139, 40, 31, 65, 49, 22, 234, 62, 111, 25, 145, 62, 139, 40, 31, 65, 49, 22, 234, 62, 203, 168, 211, 62, 53, 239, 32, 65, 49, 22, 234, 62, 111, 25, 145, 62, 53, 239, 32, 65, 49, 22, 234, 62, 203, 168, 211, 62, 237, 47, 109, 65, 113, 138, 82, 65, 111, 25, 145, 62, 237, 47, 109, 65, 113, 138, 82, 65, 203, 168, 211, 62, 151, 246, 110, 65, 113, 138, 82, 65, 111, 25, 145, 62, 151, 246, 110, 65, 113, 138, 82, 65, 203, 168, 211, 62, 236, 47, 109, 65, 64, 164, 183, 64, 111, 25, 145, 62, 236, 47, 109, 65, 64, 164, 183, 64, 203, 168, 211, 62, 150, 246, 110, 65, 64, 164, 183, 64, 111, 25, 145, 62, 150, 246, 110, 65, 64, 164, 183, 64, 203, 168, 211, 62, 198, 37, 3, 65, 72, 199, 85, 65, 66, 39, 4, 62, 198, 37, 3, 65, 72, 199, 85, 65, 253, 162, 132, 62, 198, 37, 3, 65, 242, 141, 87, 65, 66, 39, 4, 62, 198, 37, 3, 65, 242, 141, 87, 65, 253, 162, 132, 62, 211, 253, 104, 65, 71, 199, 85, 65, 66, 39, 4, 62, 211, 253, 104, 65, 71, 199, 85, 65, 253, 162, 132, 62, 211, 253, 104, 65, 241, 141, 87, 65, 66, 39, 4, 62, 211, 253, 104, 65, 241, 141, 87, 65, 253, 162, 132, 62, 68, 22, 196, 62, 72, 199, 85, 65, 66, 39, 4, 62, 68, 22, 196, 62, 72, 199, 85, 65, 253, 162, 132, 62, 68, 22, 196, 62, 242, 141, 87, 65, 66, 39, 4, 62, 68, 22, 196, 62, 242, 141, 87, 65, 253, 162, 132, 62, 126, 241, 215, 64, 72, 199, 85, 65, 66, 39, 4, 62, 126, 241, 215, 64, 72, 199, 85, 65, 253, 162, 132, 62, 126, 241, 215, 64, 242, 141, 87, 65, 66, 39, 4, 62, 126, 241, 215, 64, 242, 141, 87, 65, 253, 162, 132, 62, 9, 10, 8, 22, 21, 20, 9, 11, 10, 22, 23, 21, 21, 16, 20, 22, 16, 18, 21, 17, 16, 22, 20, 16, 19, 17, 21, 19, 21, 23, 11, 9, 13, 11, 13, 15, 14, 12, 8, 13, 8, 12, 14, 8, 10, 13, 9, 8, 14, 13, 12, 14, 15, 13, 3, 5, 7, 1, 2, 0, 1, 3, 2, 6, 4, 0, 3, 1, 5, 6, 0, 2, 30, 24, 26, 27, 29, 31, 30, 29, 28, 17, 19, 18, 17, 18, 16, 25, 26, 24, 29, 24, 28, 25, 27, 26, 29, 25, 24, 30, 28, 24, 27, 25, 29, 30, 31, 29, 5, 0, 4, 5, 1, 0, 37, 0, 0, 0, 4, 13, 23, 32, 10, 11, 29, 30, 31, 12, 26, 7, 25, 5, 6, 24, 8, 27, 3, 0, 19, 21, 22, 2, 16, 17, 18, 28, 9, 14, 15, 33, 34, 35, 36, 37, 1, 20, 2, 0, 0, 0, 14, 0, 0, 0, 15, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 7, 0, 0, 0, 10, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 9, 0, 0, 0, 1, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0, 28, 0, 0, 0, 255, 255, 255, 255, 8, 0, 0, 0, 28, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 27, 0, 0, 0, 6, 0, 0, 0, 9, 0, 0, 0, 8, 0, 0, 0, 3, 0, 0, 0, 255, 255, 255, 255, 2, 0, 0, 0, 15, 0, 0, 0, 11, 0, 0, 0, 10, 0, 0, 0, 17, 0, 0, 0, 255, 255, 255, 255, 16, 0, 0, 0, 13, 0, 0, 0, 14, 0, 0, 0, 15, 0, 0, 0, 12, 0, 0, 0, 16, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 10, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 17, 0, 0, 0, 13, 0, 0, 0, 12, 0, 0, 0, 255, 255, 255, 255, 11, 0, 0, 0, 16, 0, 0, 0, 22, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 20, 0, 0, 0, 23, 0, 0, 0, 37, 0, 0, 0, 22, 0, 0, 0, 255, 255, 255, 255, 19, 0, 0, 0, 255, 255, 255, 255, 36, 0, 0, 0, 23, 0, 0, 0, 20, 0, 0, 0, 37, 0, 0, 0, 18, 0, 0, 0, 21, 0, 0, 0, 19, 0, 0, 0, 255, 255, 255, 255, 33, 0, 0, 0, 29, 0, 0, 0, 255, 255, 255, 255, 34, 0, 0, 0, 35, 0, 0, 0, 255, 255, 255, 255, 35, 0, 0, 0, 30, 0, 0, 0, 33, 0, 0, 0, 8, 0, 0, 0, 255, 255, 255, 255, 28, 0, 0, 0, 27, 0, 0, 0, 5, 0, 0, 0, 6, 0, 0, 0, 31, 0, 0, 0, 24, 0, 0, 0, 32, 0, 0, 0, 32, 0, 0, 0, 33, 0, 0, 0, 26, 0, 0, 0, 34, 0, 0, 0, 255, 255, 255, 255, 29, 0, 0, 0, 34, 0, 0, 0, 29, 0, 0, 0, 30, 0, 0, 0, 26, 0, 0, 0, 30, 0, 0, 0, 24, 0, 0, 0, 31, 0, 0, 0, 32, 0, 0, 0, 25, 0, 0, 0, 255, 255, 255, 255, 25, 0, 0, 0, 26, 0, 0, 0, 37, 0, 0, 0, 21, 0, 0, 0, 255, 255, 255, 255, 22, 0, 0, 0, 19, 0, 0, 0, 36, 0, 0, 0, 66, 86, 52, 32, 3, 0, 0, 0, 73, 23, 245, 64, 164, 222, 222, 64, 54, 222, 138, 62, 204, 51, 28, 65, 2, 0, 0, 0, 245, 48, 237, 57, 33, 200, 213, 57, 59, 144, 83, 55, 71, 249, 238, 57, 115, 144, 215, 57, 170, 196, 83, 55, 1, 0, 0, 0, 8, 0, 0, 0, 78, 3, 65, 85, 227, 85, 255, 127, 197, 70, 255, 127, 0, 0, 0, 0, 96, 4, 255, 127, 96, 4, 135, 54, 249, 54, 255, 127, 0, 0, 0, 0, 234, 39, 255, 127, 185, 87, 255, 127, 234, 39, 255, 127, 0, 0, 0, 0, 29, 3, 0, 0, 17, 2, 0, 0, 132, 39, 0, 0, 255, 255, 255, 255, 187, 125, 255, 127, 197, 70, 205, 124, 255, 127, 255, 127, 255, 127, 255, 127, 14, 126, 255, 127, 255, 127, 255, 127, 249, 54, 5, 125, 249, 54, 5, 125, 234, 39, 255, 127, 234, 39, 60, 80, 255, 127, 255, 127, 185, 87, 255, 127, 9, 0, 0, 0, 141, 0, 0, 0, 69, 1, 0, 0, 137, 1, 0, 0, 151, 246, 110, 54, 68, 22, 196, 62, 49, 22, 234, 62, 66, 39, 4, 62, 151, 246, 110, 65, 242, 141, 87, 65, 203, 168, 211, 62, 38, 0, 0, 0, 48, 48, 24, 24, 48, 48, 24, 24, 24, 48, 24, 48, 24, 48, 48, 24, 48, 24, 48, 48, 24, 24, 24, 48, 48, 48, 48, 24, 48, 48, 48, 24, 24, 24, 24, 24, 48, 24, 3, 5, 7, 6, 4, 0, 3, 1, 5, 6, 0, 2, 5, 0, 4, 5, 1, 0, 1, 2, 0, 1, 3, 2, 14, 13, 12, 14, 15, 13, 11, 9, 13, 11, 13, 15, 14, 12, 8, 13, 8, 12, 14, 8, 10, 13, 9, 8, 9, 10, 8, 25, 26, 24, 25, 27, 26, 29, 24, 28, 29, 25, 24, 30, 24, 26, 27, 29, 31, 30, 28, 24, 27, 25, 29, 30, 29, 28, 30, 31, 29, 17, 19, 18, 17, 18, 16, 21, 16, 20, 21, 17, 16, 22, 20, 16, 19, 17, 21, 19, 21, 23, 22, 16, 18, 22, 21, 20, 22, 23, 21, 9, 11, 10, 2, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 4, 0, 0, 0, 3, 0, 0, 128, 0, 0, 0, 0, 7, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 1, 0, 0, 128, 6, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 5, 0, 0, 128, 1, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0, 4, 0, 0, 128, 0, 0, 0, 0, 7, 0, 0, 128, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 255, 255, 255, 255, 6, 0, 0, 128, 0, 0, 0, 0, 9, 0, 0, 128, 13, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 11, 0, 0, 0, 8, 0, 0, 128, 0, 0, 0, 0, 37, 0, 0, 0, 15, 0, 0, 0, 11, 0, 0, 128, 0, 0, 0, 0, 10, 0, 0, 128, 9, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 8, 0, 0, 0, 13, 0, 0, 0, 14, 0, 0, 128, 0, 0, 0, 0, 15, 0, 0, 128, 12, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 128, 16, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 10, 0, 0, 0, 16, 0, 0, 0, 13, 0, 0, 128, 0, 0, 0, 0, 37, 0, 0, 128, 14, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 128, 21, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 255, 255, 255, 255, 17, 0, 0, 128, 0, 0, 0, 0, 20, 0, 0, 128, 23, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 17, 0, 0, 0, 19, 0, 0, 128, 0, 0, 0, 0, 23, 0, 0, 128, 17, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 24, 0, 0, 128, 26, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 25, 0, 0, 0, 19, 0, 0, 0, 21, 0, 0, 128, 0, 0, 0, 0, 18, 0, 0, 0, 20, 0, 0, 0, 22, 0, 0, 128, 0, 0, 0, 0, 26, 0, 0, 128, 19, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 22, 0, 0, 0, 25, 0, 0, 128, 0, 0, 0, 0, 32, 0, 0, 0, 255, 255, 255, 255, 28, 0, 0, 128, 0, 0, 0, 0, 27, 0, 0, 128, 34, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 128, 31, 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 28, 0, 0, 0, 29, 0, 0, 128, 0, 0, 0, 0, 35, 0, 0, 0, 29, 0, 0, 0, 34, 0, 0, 128, 0, 0, 0, 0, 27, 0, 0, 0, 30, 0, 0, 0, 33, 0, 0, 128, 0, 0, 0, 0, 32, 0, 0, 128, 36, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 31, 0, 0, 128, 28, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 36, 0, 0, 128, 29, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 33, 0, 0, 0, 35, 0, 0, 128, 0, 0, 0, 0, 10, 0, 0, 0, 255, 255, 255, 255, 16, 0, 0, 128, 0, 0, 0, 0, 18, 0, 0, 0, 21, 0, 0, 0, 22, 0, 0, 0, 23, 0, 0, 0, 36, 0, 0, 0, 37, 0, 0, 0, 19, 0, 0, 0, 20, 0, 0, 0, 16, 0, 0, 0, 17, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 12, 0, 0, 0, 13, 0, 0, 0, 14, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 31, 0, 0, 0, 30, 0, 0, 0, 32, 0, 0, 0, 24, 0, 0, 0, 25, 0, 0, 0, 33, 0, 0, 0, 34, 0, 0, 0, 26, 0, 0, 0, 35, 0, 0, 0, 27, 0, 0, 0, 28, 0, 0, 0, 4, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 16, 0, 0, 0, 35, 0, 0, 0, 37, 0, 0, 0, 36, 0, 0, 0, 29, 0, 0, 0, 34, 0, 0, 0, 30, 0, 0, 0, 31, 0, 0, 0, 32, 0, 0, 0, 33, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 12, 0, 0, 0, 13, 0, 0, 0, 14, 0, 0, 0, 15, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 21, 0, 0, 0, 22, 0, 0, 0, 25, 0, 0, 0, 27, 0, 0, 0, 28, 0, 0, 0, 17, 0, 0, 0, 19, 0, 0, 0, 18, 0, 0, 0, 20, 0, 0, 0, 23, 0, 0, 0, 24, 0, 0, 0, 26, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 66, 86, 51, 50, 2, 0, 0, 0, 73, 23, 245, 64, 164, 222, 222, 64, 54, 222, 138, 62, 204, 51, 28, 65, 3, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 35, 0, 0, 0, 171, 8, 0, 0, 185, 39, 31, 65, 250, 251, 233, 62, 56, 255, 144, 62, 0, 0, 0, 0, 13, 252, 195, 62, 159, 137, 82, 65, 212, 242, 3, 62, 0, 0, 0, 0, 105, 247, 110, 65, 67, 139, 82, 65, 2, 195, 211, 62, 0, 0, 0, 0, 105, 247, 110, 65, 196, 142, 87, 65, 2, 195, 211, 62, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 114, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 9, 0, 0, 0, 12, 0, 0, 0, 15, 0, 0, 0, 17, 0, 0, 0, 21, 0, 0, 0, 23, 0, 0, 0, 24, 0, 0, 0, 29, 0, 0, 0, 33, 0, 0, 0, 36, 0, 0, 0, 39, 0, 0, 0, 42, 0, 0, 0, 48, 0, 0, 0, 52, 0, 0, 0, 54, 0, 0, 0, 59, 0, 0, 0, 63, 0, 0, 0, 66, 0, 0, 0, 69, 0, 0, 0, 72, 0, 0, 0, 78, 0, 0, 0, 82, 0, 0, 0, 84, 0, 0, 0, 89, 0, 0, 0, 93, 0, 0, 0, 96, 0, 0, 0, 99, 0, 0, 0, 102, 0, 0, 0, 108, 0, 0, 0, 112, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 6, 0, 0, 0, 2, 0, 0, 0, 5, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 3, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 13, 0, 0, 0, 14, 0, 0, 0, 15, 0, 0, 0, 16, 0, 0, 0, 10, 0, 0, 0, 15, 0, 0, 0, 16, 0, 0, 0, 37, 0, 0, 0, 14, 0, 0, 0, 16, 0, 0, 0, 37, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 37, 0, 0, 0, 8, 0, 0, 0, 12, 0, 0, 0, 13, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 13, 0, 0, 0, 15, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 12, 0, 0, 0, 14, 0, 0, 0, 9, 0, 0, 0, 11, 0, 0, 0, 28, 0, 0, 0, 29, 0, 0, 0, 30, 0, 0, 0, 31, 0, 0, 0, 34, 0, 0, 0, 27, 0, 0, 0, 28, 0, 0, 0, 30, 0, 0, 0, 32, 0, 0, 0, 27, 0, 0, 0, 28, 0, 0, 0, 34, 0, 0, 0, 27, 0, 0, 0, 32, 0, 0, 0, 33, 0, 0, 0, 29, 0, 0, 0, 31, 0, 0, 0, 35, 0, 0, 0, 29, 0, 0, 0, 30, 0, 0, 0, 32, 0, 0, 0, 33, 0, 0, 0, 35, 0, 0, 0, 36, 0, 0, 0, 31, 0, 0, 0, 34, 0, 0, 0, 35, 0, 0, 0, 36, 0, 0, 0, 33, 0, 0, 0, 36, 0, 0, 0, 17, 0, 0, 0, 19, 0, 0, 0, 20, 0, 0, 0, 21, 0, 0, 0, 23, 0, 0, 0, 17, 0, 0, 0, 18, 0, 0, 0, 20, 0, 0, 0, 24, 0, 0, 0, 17, 0, 0, 0, 18, 0, 0, 0, 21, 0, 0, 0, 18, 0, 0, 0, 22, 0, 0, 0, 24, 0, 0, 0, 19, 0, 0, 0, 23, 0, 0, 0, 25, 0, 0, 0, 19, 0, 0, 0, 20, 0, 0, 0, 22, 0, 0, 0, 24, 0, 0, 0, 25, 0, 0, 0, 26, 0, 0, 0, 21, 0, 0, 0, 23, 0, 0, 0, 25, 0, 0, 0, 26, 0, 0, 0, 22, 0, 0, 0, 26, 0, 0, 0]
+            bool singleSided = 1
+        }
+    }
+
+    over "DuctPipes"
+    {
+        over "DuctPipes_mesh"
+        {
+            rel material:binding = </World/Looks/rpl/rpl_duct_vent> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            bool singleSided = 1
+        }
+    }
+
+    over "Ducts"
+    {
+        over "Ducts_mesh"
+        {
+            rel material:binding = </World/Looks/rpl/rpl_duct> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            bool singleSided = 1
+        }
+    }
+
+    over "Columns"
+    {
+        over "Columns_mesh" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxTriangleMeshCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCookedDataAPI:triangleMesh"]
+        )
+        {
+            rel material:binding = </World/Looks/rpl/rpl_column> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            uniform token physics:approximation = "none"
+            bool physics:collisionEnabled = 1
+            uchar[] physxCookedData:triangleMesh:buffer = [7, 98, 200, 94, 87, 223, 248, 189, 57, 242, 175, 194, 242, 91, 92, 240, 160, 78, 88, 83, 1, 77, 69, 83, 72, 16, 0, 0, 0, 1, 0, 0, 0, 182, 1, 0, 0, 17, 0, 0, 0, 13, 0, 0, 0, 25, 147, 27, 53, 12, 36, 84, 65, 1, 0, 16, 65, 230, 14, 28, 62, 12, 36, 84, 65, 1, 0, 16, 65, 232, 14, 28, 62, 51, 85, 96, 65, 1, 0, 16, 65, 52, 85, 224, 64, 51, 85, 96, 65, 1, 0, 16, 65, 52, 85, 224, 64, 12, 36, 84, 65, 1, 0, 16, 65, 248, 151, 253, 64, 12, 36, 84, 65, 1, 0, 16, 65, 248, 151, 253, 64, 51, 85, 96, 65, 1, 0, 16, 65, 25, 147, 27, 53, 12, 36, 84, 65, 0, 0, 0, 0, 230, 14, 28, 62, 12, 36, 84, 65, 0, 0, 0, 0, 232, 14, 28, 62, 51, 85, 96, 65, 0, 0, 0, 0, 52, 85, 224, 64, 51, 85, 96, 65, 0, 0, 0, 0, 52, 85, 224, 64, 12, 36, 84, 65, 0, 0, 0, 0, 248, 151, 253, 64, 12, 36, 84, 65, 0, 0, 0, 0, 248, 151, 253, 64, 51, 85, 96, 65, 0, 0, 0, 0, 52, 85, 224, 64, 51, 85, 96, 65, 187, 9, 75, 64, 248, 151, 253, 64, 51, 85, 96, 65, 187, 9, 75, 64, 232, 14, 28, 62, 51, 85, 96, 65, 187, 9, 75, 64, 12, 13, 15, 11, 5, 4, 14, 11, 4, 6, 5, 15, 5, 12, 15, 11, 12, 5, 4, 3, 14, 14, 10, 11, 7, 1, 0, 8, 9, 16, 2, 1, 16, 1, 8, 16, 7, 8, 1, 12, 0, 0, 0, 0, 1, 2, 5, 6, 7, 8, 9, 4, 3, 10, 11, 12, 255, 255, 255, 255, 255, 255, 255, 255, 4, 0, 0, 0, 5, 0, 0, 0, 255, 255, 255, 255, 2, 0, 0, 0, 7, 0, 0, 0, 1, 0, 0, 0, 6, 0, 0, 0, 255, 255, 255, 255, 4, 0, 0, 0, 255, 255, 255, 255, 5, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 255, 255, 255, 255, 4, 0, 0, 0, 1, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 2, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 2, 0, 0, 0, 12, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 11, 0, 0, 0, 255, 255, 255, 255, 11, 0, 0, 0, 255, 255, 255, 255, 12, 0, 0, 0, 9, 0, 0, 0, 10, 0, 0, 0, 255, 255, 255, 255, 11, 0, 0, 0, 8, 0, 0, 0, 66, 86, 52, 32, 3, 0, 0, 0, 249, 151, 125, 64, 160, 60, 90, 65, 1, 0, 144, 64, 88, 65, 192, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51, 85, 96, 54, 25, 147, 27, 53, 12, 36, 84, 65, 0, 0, 0, 0, 248, 151, 253, 64, 51, 85, 96, 65, 1, 0, 16, 65, 13, 0, 0, 0, 24, 48, 16, 40, 8, 24, 24, 24, 48, 24, 40, 8, 24, 7, 1, 0, 7, 8, 1, 8, 9, 16, 2, 1, 16, 1, 8, 16, 14, 11, 4, 4, 3, 14, 14, 10, 11, 11, 5, 4, 11, 12, 5, 12, 13, 15, 6, 5, 15, 5, 12, 15, 1, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 4, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 4, 0, 0, 128, 255, 255, 255, 255, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 128, 3, 0, 0, 128, 0, 0, 0, 0, 7, 0, 0, 128, 8, 0, 0, 0, 6, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 5, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 5, 0, 0, 128, 0, 0, 0, 0, 9, 0, 0, 128, 255, 255, 255, 255, 5, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 12, 0, 0, 0, 8, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 12, 0, 0, 128, 0, 0, 0, 0, 255, 255, 255, 255, 12, 0, 0, 128, 255, 255, 255, 255, 0, 0, 0, 0, 9, 0, 0, 0, 10, 0, 0, 128, 11, 0, 0, 128, 0, 0, 0, 0, 8, 0, 0, 0, 12, 0, 0, 0, 9, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 10, 0, 0, 0, 8, 0, 0, 0, 5, 0, 0, 0, 11, 0, 0, 0, 12, 0, 0, 0, 9, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0, 66, 86, 51, 50, 2, 0, 0, 0, 249, 151, 125, 64, 160, 60, 90, 65, 1, 0, 144, 64, 88, 65, 192, 64, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 25, 147, 27, 53, 12, 36, 84, 65, 0, 0, 0, 0, 0, 0, 0, 0, 248, 151, 253, 64, 51, 85, 96, 65, 1, 0, 16, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 10, 0, 0, 0, 14, 0, 0, 0, 15, 0, 0, 0, 17, 0, 0, 0, 20, 0, 0, 0, 21, 0, 0, 0, 22, 0, 0, 0, 26, 0, 0, 0, 29, 0, 0, 0, 30, 0, 0, 0, 33, 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 6, 0, 0, 0, 5, 0, 0, 0, 6, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 11, 0, 0, 0, 12, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 5, 0, 0, 0, 7, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 9, 0, 0, 0, 10, 0, 0, 0, 12, 0, 0, 0, 10, 0, 0, 0, 5, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 10, 0, 0, 0, 11, 0, 0, 0, 12, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0]
+            bool singleSided = 1
+        }
+    }
+
+    over "CeilingStruts"
+    {
+        over "CeilingStruts_mesh"
+        {
+            rel material:binding = </World/Looks/rpl/rpl_bar_green> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            bool singleSided = 1
+        }
+    }
+
+    over "Ledge"
+    {
+        over "Ledge_mesh" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxTriangleMeshCollisionAPI", "PhysicsMeshCollisionAPI", "PhysxCookedDataAPI:triangleMesh"]
+        )
+        {
+            rel material:binding = </World/Looks/rpl/rpl_wall_paint_gray> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            uniform token physics:approximation = "none"
+            bool physics:collisionEnabled = 1
+            uchar[] physxCookedData:triangleMesh:buffer = [7, 96, 12, 173, 250, 57, 85, 86, 195, 0, 190, 107, 31, 127, 112, 128, 145, 78, 88, 83, 1, 77, 69, 83, 72, 16, 0, 0, 0, 1, 0, 0, 0, 182, 1, 0, 0, 6, 0, 0, 0, 4, 0, 0, 0, 233, 14, 28, 62, 51, 85, 96, 65, 104, 163, 132, 62, 90, 134, 108, 65, 50, 85, 96, 65, 104, 163, 132, 62, 232, 14, 28, 62, 242, 141, 87, 65, 0, 0, 128, 180, 232, 14, 28, 62, 242, 141, 87, 65, 104, 163, 132, 62, 90, 134, 108, 65, 241, 141, 87, 65, 0, 0, 128, 180, 90, 134, 108, 65, 241, 141, 87, 65, 104, 163, 132, 62, 1, 3, 5, 1, 0, 3, 5, 3, 2, 5, 2, 4, 3, 0, 0, 0, 1, 3, 2, 0, 1, 0, 0, 0, 2, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 3, 0, 0, 0, 2, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 66, 86, 52, 32, 3, 0, 0, 0, 150, 246, 238, 64, 146, 241, 91, 65, 96, 163, 4, 62, 160, 73, 234, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 90, 134, 108, 54, 232, 14, 28, 62, 241, 141, 87, 65, 0, 0, 128, 180, 90, 134, 108, 65, 51, 85, 96, 65, 104, 163, 132, 62, 4, 0, 0, 0, 48, 24, 24, 48, 1, 3, 5, 1, 0, 3, 5, 3, 2, 5, 2, 4, 1, 0, 0, 128, 2, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 3, 0, 0, 128, 0, 0, 0, 0, 2, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 66, 86, 51, 50, 2, 0, 0, 0, 150, 246, 238, 64, 146, 241, 91, 65, 96, 163, 4, 62, 160, 73, 234, 64, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 104, 127, 0, 0, 9, 0, 0, 0, 232, 14, 28, 62, 241, 141, 87, 65, 0, 0, 128, 180, 0, 0, 0, 0, 90, 134, 108, 65, 51, 85, 96, 65, 104, 163, 132, 62, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 8, 0, 0, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0]
+            bool singleSided = 1
+        }
+    }
+
+    over "Lights"
+    {
+        over "Lights_mesh"
+        {
+            bool singleSided = 1
+        }
+    }
+}
+
+def Xform "Environment"
+{
+    quatd xformOp:orient = (1, 0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def DistantLight "defaultLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float angle = 1
+        float intensity = 3000
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        quatd xformOp:orient = (0.6532814824381883, 0.2705980500730985, 0.27059805007309845, 0.6532814824381882)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

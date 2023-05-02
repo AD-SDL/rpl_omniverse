@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (-0.1256193229352189, -0.3615207135111907, 0.9285929129487457)
-                double3 target = (0.010940219995411948, 0.011338862165189645, -0.00694379239367382)
+                double3 position = (-0.4978116098697431, -0.23758342348325964, 0.5142489327688546)
+                double3 target = (-0.014830996919108441, -0.0009413002092483191, -0.0133280115436758)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -60,7 +60,7 @@
     metersPerUnit = 1
     startTimeCode = 0
     subLayers = [
-        @file:/home/rmbutler/rpl_omniverse/usd/materials/common.usda@,
+        @../materials/common.usda@,
         @../../cad/objects/keyboard/2_export/keyboard.usdc@
     ]
     timeCodesPerSecond = 24
@@ -71,7 +71,7 @@ def Xform "World"
 {
     over "keyboard"
     {
-        matrix4d xformOp:transform = ( (0.02999998092651367, 0, 0, 0), (0, -4.887617532343185e-9, 0.029999980926513684, 0), (0, -0.029999980926513684, -4.887617532343185e-9, 0), (0, 0, 0, 1) )
+        matrix4d xformOp:transform = ( (0.02999998092651367, 0, 0, 0), (0, -4.887617554065683e-9, 0.029999980926513688, 0), (0, -0.029999980926513688, -4.887617554065683e-9, 0), (0, 1.307643064992502e-25, 0.006787024067739981, 1) )
 
         over "keyboard_mesh"
         {
@@ -90,21 +90,101 @@ def Xform "Environment"
     double3 xformOp:translate = (0, 0, 0)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
-    def DistantLight "defaultLight" (
-        prepend apiSchemas = ["ShapingAPI"]
-    )
+    def Xform "GroundPlane"
     {
-        float angle = 1
-        float intensity = 3000
-        float shaping:cone:angle = 180
-        float shaping:cone:softness
-        float shaping:focus
-        color3f shaping:focusTint
-        asset shaping:ies:file
-        quatd xformOp:orient = (0.6532814824381883, 0.2705980500730985, 0.27059805007309845, 0.6532814824381882)
-        double3 xformOp:scale = (1, 1, 1)
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Mesh "CollisionMesh"
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1)]
+            point3f[] points = [(-25, -25, 0), (25, -25, 0), (25, 25, 0), (-25, 25, 0)]
+            color3f[] primvars:displayColor = [(0.5, 0.5, 0.5)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "varying"
+            )
+        }
+
+        def Plane "CollisionPlane" (
+            prepend apiSchemas = ["PhysicsCollisionAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            uniform token purpose = "guide"
+        }
+    }
+
+    def Xform "Default" (
+        hide_in_stage_window = false
+        no_delete = false
+    )
+    {
+        matrix4d xformOp:transform = ( (0, 1, 0, 0), (0, 0, 1, 0), (1, 0, 0, 0), (0, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform"]
+
+        def Xform "Lights" (
+            kind = "group"
+        )
+        {
+            double3 xformOp:rotateXYZ = (0, -90, -90)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (0, 0, 0)
+            double3 xformOp:translate:pivot = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:translate:pivot", "xformOp:rotateXYZ", "xformOp:scale", "!invert!xformOp:translate:pivot"]
+
+            def DomeLight "DomeLight" (
+                apiSchemas = ["ShapingAPI"]
+            )
+            {
+                float colorTemperature = 6150
+                bool enableColorTemperature = 1
+                float exposure = 9
+                float intensity = 1
+                float shaping:cone:angle = 180
+                float shaping:cone:softness
+                float shaping:focus
+                color3f shaping:focusTint
+                asset shaping:ies:file
+                token texture:format = "latlong"
+                token visibility = "inherited"
+                double3 xformOp:rotateXYZ = (0, 0, 62.30000092834234)
+                double3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (0, 0, 305)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def DistantLight "DistantLight" (
+                apiSchemas = ["ShapingAPI"]
+            )
+            {
+                float angle = 0.53
+                float colorTemperature = 7250
+                bool enableColorTemperature = 1
+                float exposure = 10
+                float intensity = 1
+                float shaping:cone:angle = 180
+                float shaping:cone:softness
+                float shaping:focus
+                color3f shaping:focusTint
+                asset shaping:ies:file
+                token visibility = "inherited"
+                double3 xformOp:rotateXYZ = (55, 0, 135)
+                double3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (0, 0, 305)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+        }
+    }
+
+    over "defaultLight" (
+        active = false
+    )
+    {
     }
 }
 
